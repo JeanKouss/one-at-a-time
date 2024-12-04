@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmi5tsem3iw7n"]
+
+[ext_resource type="Script" path="res://scenes/RobToy/RobToy.gd" id="1_0fnyv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kktcp"]
+size = Vector2(100, 100)
+
+[node name="RobToy" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_0fnyv")
+initial_dir = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_kktcp")
+
+[node name="Body" type="Node2D" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="Body"]
+polygon = PackedVector2Array(-50, -50, 50, -50, 50, 50, -50, 50)

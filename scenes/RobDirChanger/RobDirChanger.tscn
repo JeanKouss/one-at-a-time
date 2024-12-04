@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqrdpuvsq0yg3"]
+
+[ext_resource type="Script" path="res://scenes/RobDirChanger/RobDirChanger.gd" id="1_clyvo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3b04d"]
+size = Vector2(200, 200)
+
+[node name="RobDirChanger" type="Area2D"]
+monitorable = false
+script = ExtResource("1_clyvo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_3b04d")
+
+[node name="Body" type="Node2D" parent="."]
+
+[node name="Arrow" type="Polygon2D" parent="Body"]
+rotation = 12.5664
+polygon = PackedVector2Array(-30, 60, -30, -60, 70, -2.44784e-05)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

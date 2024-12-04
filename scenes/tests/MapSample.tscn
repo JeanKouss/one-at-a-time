@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://s3smc01exapr"]
+
+[ext_resource type="PackedScene" uid="uid://cqrdpuvsq0yg3" path="res://scenes/RobDirChanger/RobDirChanger.tscn" id="1_48btn"]
+[ext_resource type="PackedScene" uid="uid://bmi5tsem3iw7n" path="res://scenes/RobToy/RobToy.tscn" id="2_vhivp"]
+
+[node name="MapSample" type="Node2D"]
+
+[node name="RobDirChanger" parent="." instance=ExtResource("1_48btn")]
+position = Vector2(-800, 0)
+
+[node name="RobDirChanger2" parent="." instance=ExtResource("1_48btn")]
+facing = 0
+
+[node name="RobDirChanger3" parent="." instance=ExtResource("1_48btn")]
+position = Vector2(0, -400)
+
+[node name="RobDirChanger4" parent="." instance=ExtResource("1_48btn")]
+position = Vector2(600, -400)
+facing = 2
+
+[node name="RobDirChanger5" parent="." instance=ExtResource("1_48btn")]
+position = Vector2(600, 400)
+facing = 3
+
+[node name="RobDirChanger6" parent="." instance=ExtResource("1_48btn")]
+position = Vector2(-800, 400)
+facing = 0
+
+[node name="RobToy" parent="." instance=ExtResource("2_vhivp")]
+position = Vector2(-800, -400)
+
+[node name="RobToy2" parent="." instance=ExtResource("2_vhivp")]
+position = Vector2(-400, 400)
+initial_dir = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.585, 0.585)
