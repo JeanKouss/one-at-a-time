@@ -20,7 +20,7 @@ facing = 2
 
 [node name="RobDirChanger5" parent="." instance=ExtResource("1_48btn")]
 position = Vector2(600, 400)
-facing = 3
+facing = 0
 
 [node name="RobDirChanger6" parent="." instance=ExtResource("1_48btn")]
 position = Vector2(-800, 400)

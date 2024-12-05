@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1s6wyq5vesfb"]
+
+[ext_resource type="Script" path="res://scenes/Exit/Exit.gd" id="1_uyit1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jivt4"]
+radius = 20.0
+
+[node name="Exit" type="Node2D"]
+script = ExtResource("1_uyit1")
+
+[node name="Body" type="Node2D" parent="."]
+
+[node name="Entry" type="Polygon2D" parent="Body"]
+polygon = PackedVector2Array(100, -100, 70, -80, 70, 80, 100, 100)
+
+[node name="Box" type="Polygon2D" parent="Body"]
+color = Color(0.194349, 0.194349, 0.194349, 1)
+polygon = PackedVector2Array(70, -70, -70, -70, -70, 70, 70, 70)
+
+[node name="ExitConfirmationArea" type="Area2D" parent="."]
+position = Vector2(-30, 0)
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitConfirmationArea"]
+position = Vector2(-20, 0)
+shape = SubResource("CircleShape2D_jivt4")
+
+[connection signal="body_entered" from="ExitConfirmationArea" to="." method="_on_exit_confirmation_area_body_entered"]

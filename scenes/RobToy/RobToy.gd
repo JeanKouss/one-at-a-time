@@ -43,7 +43,18 @@ func closer_valid_position(of:Vector2) :
 	var valid : Vector2 = snapped(of, Vector2(200, 200))
 	return valid
 
+func exit_map() :
+	queue_free()
+
+func _on_contact_area_body_entered(body:Node2D) -> void:
+	if body == self :
+		return
+	destroy(body.global_position)
+
+func destroy(_from:Vector2=Vector2.ZERO) :
+	queue_free()
 
 func _process(_delta: float) -> void:
 	if Engine.is_editor_hint() :
 		global_position = snapped(global_position, Vector2(200, 200))
+

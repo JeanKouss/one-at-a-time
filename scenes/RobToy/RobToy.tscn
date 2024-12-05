@@ -1,14 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://bmi5tsem3iw7n"]
+[gd_scene load_steps=4 format=3 uid="uid://bmi5tsem3iw7n"]
 
 [ext_resource type="Script" path="res://scenes/RobToy/RobToy.gd" id="1_0fnyv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kktcp"]
 size = Vector2(100, 100)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g34rc"]
+size = Vector2(100, 100)
+
 [node name="RobToy" type="CharacterBody2D"]
+collision_mask = 0
 motion_mode = 1
 script = ExtResource("1_0fnyv")
-initial_dir = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_kktcp")
@@ -17,3 +20,11 @@ shape = SubResource("RectangleShape2D_kktcp")
 
 [node name="Polygon2D" type="Polygon2D" parent="Body"]
 polygon = PackedVector2Array(-50, -50, 50, -50, 50, 50, -50, 50)
+
+[node name="ContactArea" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ContactArea"]
+shape = SubResource("RectangleShape2D_g34rc")
+
+[connection signal="body_entered" from="ContactArea" to="." method="_on_contact_area_body_entered"]
