@@ -12,17 +12,17 @@
 [node name="Directions" type="Node2D" parent="."]
 
 [node name="RobDirChanger" parent="Directions" instance=ExtResource("2_b4hvc")]
-facing = 3
 
 [node name="Toys" type="Node2D" parent="."]
 
 [node name="RobToy" parent="Toys" instance=ExtResource("3_cdtq8")]
 position = Vector2(-1000, 0)
-rotation = 12.5664
-initial_dir = 1
+rotation = 15.708
+initial_dir = 3
 
 [node name="Exits" type="Node2D" parent="."]
 
 [node name="Exit" parent="Exits" instance=ExtResource("4_tf3gf")]
+z_index = 100
 position = Vector2(1030, 0)
 rotation = 3.14159

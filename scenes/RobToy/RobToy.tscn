@@ -54,10 +54,11 @@ visible = false
 position = Vector2(90, 0)
 texture = ExtResource("5_xffpl")
 
-[node name="ContactArea" type="Area2D" parent="."]
+[node name="DestructionContactArea" type="Area2D" parent="."]
 collision_layer = 0
+collision_mask = 9
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ContactArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DestructionContactArea"]
 shape = SubResource("RectangleShape2D_g34rc")
 
 [node name="ExplosionParts" type="Node2D" parent="."]
@@ -66,7 +67,7 @@ script = ExtResource("6_e8kt6")
 
 [node name="RightEye" type="RigidBody2D" parent="ExplosionParts"]
 position = Vector2(30, 30)
-collision_mask = 0
+collision_mask = 9
 gravity_scale = 0.0
 
 [node name="RightEye" type="Sprite2D" parent="ExplosionParts/RightEye"]
@@ -78,7 +79,7 @@ shape = SubResource("CircleShape2D_2pqjs")
 
 [node name="LeftEye" type="RigidBody2D" parent="ExplosionParts"]
 position = Vector2(30, -30)
-collision_mask = 0
+collision_mask = 9
 gravity_scale = 0.0
 
 [node name="LeftEye" type="Sprite2D" parent="ExplosionParts/LeftEye"]
@@ -88,4 +89,4 @@ texture = ExtResource("3_etcpb")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExplosionParts/LeftEye"]
 shape = SubResource("CircleShape2D_kw0mf")
 
-[connection signal="body_entered" from="ContactArea" to="." method="_on_contact_area_body_entered"]
+[connection signal="body_entered" from="DestructionContactArea" to="." method="_on_contact_area_body_entered"]

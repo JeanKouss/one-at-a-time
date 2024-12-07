@@ -16,9 +16,10 @@ config/icon="res://icon.svg"
 
 [layer_names]
 
-2d_physics/layer_1="BobToy"
+2d_physics/layer_1="RobToy"
 2d_physics/layer_2="RobDirChanger"
 2d_physics/layer_3="Exit"
+2d_physics/layer_4="MapBorders"
 
 [rendering]
 

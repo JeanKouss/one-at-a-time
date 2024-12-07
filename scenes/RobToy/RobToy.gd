@@ -50,7 +50,10 @@ func exit_map() :
 func _on_contact_area_body_entered(body:Node2D) -> void:
 	if body == self or body.owner == self :
 		return
-	destroy(body.global_position)
+	var from  = body.global_position
+	if body is StaticBody2D :
+		from = global_position + direction
+	destroy(from)
 
 func destroy(from:Vector2=Vector2.ZERO) :
 	$RobToyCollisionShape.set_deferred('disabled', true)

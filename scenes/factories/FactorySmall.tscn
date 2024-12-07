@@ -1,4 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://dj6y7xe1nn0t7"]
+[gd_scene load_steps=3 format=3 uid="uid://dj6y7xe1nn0t7"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ekumq"]
+friction = 0.1
+bounce = 0.9
 
 [sub_resource type="Environment" id="Environment_71e78"]
 background_mode = 3
@@ -10,6 +14,9 @@ background_color = Color(0.519931, 0.340077, 0.593292, 1)
 zoom = Vector2(0.5, 0.5)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 8
+collision_mask = 0
+physics_material_override = SubResource("PhysicsMaterial_ekumq")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 build_mode = 1
