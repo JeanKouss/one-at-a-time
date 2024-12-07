@@ -1,7 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://bmi5tsem3iw7n"]
+[gd_scene load_steps=11 format=3 uid="uid://bmi5tsem3iw7n"]
 
 [ext_resource type="Script" path="res://scenes/RobToy/RobToy.gd" id="1_0fnyv"]
-[ext_resource type="Texture2D" uid="uid://byrh01rnqthrw" path="res://assets/textures/body.png" id="2_4elp4"]
+[ext_resource type="Texture2D" uid="uid://bywqghlbbgy8t" path="res://assets/textures/body-v2.png" id="2_150gn"]
 [ext_resource type="Texture2D" uid="uid://dxokprh83hpmi" path="res://assets/textures/left-eye.png" id="3_etcpb"]
 [ext_resource type="Texture2D" uid="uid://beowbnrlf5pq4" path="res://assets/textures/right-eye.png" id="4_aytw3"]
 [ext_resource type="Texture2D" uid="uid://bt1mhvfjrbibo" path="res://assets/textures/arm.png" id="5_xffpl"]
@@ -14,20 +14,16 @@ size = Vector2(80, 120)
 size = Vector2(80, 120)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2pqjs"]
-radius = 20.6155
+radius = 25.8
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kw0mf"]
-radius = 14.0
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u1ib5"]
-height = 60.0
+radius = 17.9
 
 [node name="RobToy" type="CharacterBody2D"]
-rotation = 12.5664
+rotation = 14.1372
 collision_mask = 0
 motion_mode = 1
 script = ExtResource("1_0fnyv")
-initial_dir = 1
 
 [node name="RobToyCollisionShape" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_kktcp")
@@ -36,21 +32,25 @@ shape = SubResource("RectangleShape2D_kktcp")
 rotation = -1.5708
 
 [node name="Body" type="Sprite2D" parent="Body"]
-texture = ExtResource("2_4elp4")
+texture = ExtResource("2_150gn")
 
 [node name="LeftEye" type="Sprite2D" parent="Body"]
-position = Vector2(17, 0)
+position = Vector2(30, 30)
+scale = Vector2(1.38, 1.38)
 texture = ExtResource("3_etcpb")
 
 [node name="RightEye" type="Sprite2D" parent="Body"]
-position = Vector2(-25, 10)
+position = Vector2(-30, 30)
+scale = Vector2(1.38, 1.38)
 texture = ExtResource("4_aytw3")
 
 [node name="RightArm" type="Sprite2D" parent="Body"]
+visible = false
 position = Vector2(-90, 10)
 texture = ExtResource("5_xffpl")
 
 [node name="LeftArm" type="Sprite2D" parent="Body"]
+visible = false
 position = Vector2(90, 0)
 texture = ExtResource("5_xffpl")
 
@@ -62,55 +62,30 @@ shape = SubResource("RectangleShape2D_g34rc")
 
 [node name="ExplosionParts" type="Node2D" parent="."]
 unique_name_in_owner = true
-visible = false
 script = ExtResource("6_e8kt6")
 
 [node name="RightEye" type="RigidBody2D" parent="ExplosionParts"]
-position = Vector2(10, 25)
+position = Vector2(30, 30)
 collision_mask = 0
 gravity_scale = 0.0
 
 [node name="RightEye" type="Sprite2D" parent="ExplosionParts/RightEye"]
+scale = Vector2(1.38, 1.38)
 texture = ExtResource("4_aytw3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExplosionParts/RightEye"]
 shape = SubResource("CircleShape2D_2pqjs")
 
 [node name="LeftEye" type="RigidBody2D" parent="ExplosionParts"]
-position = Vector2(-5.94475e-06, -17)
+position = Vector2(30, -30)
 collision_mask = 0
 gravity_scale = 0.0
 
 [node name="LeftEye" type="Sprite2D" parent="ExplosionParts/LeftEye"]
+scale = Vector2(1.38, 1.38)
 texture = ExtResource("3_etcpb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExplosionParts/LeftEye"]
 shape = SubResource("CircleShape2D_kw0mf")
-
-[node name="RightArm" type="RigidBody2D" parent="ExplosionParts"]
-position = Vector2(10, 90)
-rotation = -1.5708
-collision_mask = 0
-gravity_scale = 0.0
-
-[node name="RightArm" type="Sprite2D" parent="ExplosionParts/RightArm"]
-texture = ExtResource("5_xffpl")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ExplosionParts/RightArm"]
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_u1ib5")
-
-[node name="LeftArm" type="RigidBody2D" parent="ExplosionParts"]
-position = Vector2(-3.14722e-05, -90)
-rotation = -1.5708
-collision_mask = 0
-gravity_scale = 0.0
-
-[node name="LeftArm" type="Sprite2D" parent="ExplosionParts/LeftArm"]
-texture = ExtResource("5_xffpl")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ExplosionParts/LeftArm"]
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_u1ib5")
 
 [connection signal="body_entered" from="ContactArea" to="." method="_on_contact_area_body_entered"]

@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://dj6y7xe1nn0t7"]
+
+[sub_resource type="Environment" id="Environment_71e78"]
+background_mode = 3
+background_color = Color(0.519931, 0.340077, 0.593292, 1)
+
+[node name="FactorySmall" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.5, 0.5)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+build_mode = 1
+polygon = PackedVector2Array(-1100, -600, 1100, -600, 1100, 600, -1100, 600)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_71e78")
