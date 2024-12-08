@@ -17,8 +17,8 @@
 
 [node name="RobToy" parent="Toys" instance=ExtResource("3_cdtq8")]
 position = Vector2(-1000, 0)
-rotation = 15.708
-initial_dir = 3
+rotation = 12.5664
+initial_dir = 1
 
 [node name="Exits" type="Node2D" parent="."]
 

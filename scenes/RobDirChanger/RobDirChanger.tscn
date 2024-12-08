@@ -20,3 +20,5 @@ rotation = 12.5664
 polygon = PackedVector2Array(-30, 60, -30, -60, 70, -2.44784e-05)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
