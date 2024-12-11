@@ -20,7 +20,7 @@ physics_material_override = SubResource("PhysicsMaterial_ekumq")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 build_mode = 1
-polygon = PackedVector2Array(-1100, -600, 1100, -600, 1100, 600, -1100, 600)
+polygon = PackedVector2Array(-1100, -600, 1100, -600, 1100, -99.6877, 1300, -100, 1300, 100, 1100, 100, 1100, 600, -1100, 600)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_71e78")
