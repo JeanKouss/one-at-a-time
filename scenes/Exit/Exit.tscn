@@ -1,10 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://b1s6wyq5vesfb"]
+[gd_scene load_steps=5 format=3 uid="uid://b1s6wyq5vesfb"]
 
 [ext_resource type="Script" path="res://scenes/Exit/Exit.gd" id="1_uyit1"]
 [ext_resource type="Texture2D" uid="uid://cvwyqia6bmk1" path="res://assets/textures/exit-entery.png" id="2_lkudh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jivt4"]
 radius = 20.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_sihyy"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(20, 100, 1)
+spread = 15.1
+initial_velocity_min = -27.6
+gravity = Vector3(0, 0, 0)
 
 [node name="Exit" type="Node2D"]
 script = ExtResource("1_uyit1")
@@ -16,7 +24,7 @@ color = Color(0.194349, 0.194349, 0.194349, 1)
 polygon = PackedVector2Array(70, -70, -70, -70, -70, 70, 70, 70)
 
 [node name="Entry" type="Sprite2D" parent="Body"]
-modulate = Color(3, 3, 3, 1)
+modulate = Color(2, 2, 2, 1)
 texture = ExtResource("2_lkudh")
 
 [node name="ExitConfirmationArea" type="Area2D" parent="."]
@@ -26,5 +34,10 @@ collision_layer = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitConfirmationArea"]
 position = Vector2(-20, 0)
 shape = SubResource("CircleShape2D_jivt4")
+
+[node name="CPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(120, 0)
+amount = 15
+process_material = SubResource("ParticleProcessMaterial_sihyy")
 
 [connection signal="body_entered" from="ExitConfirmationArea" to="." method="_on_exit_confirmation_area_body_entered"]
