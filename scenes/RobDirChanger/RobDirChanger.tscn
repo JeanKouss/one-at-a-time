@@ -9,7 +9,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3b04d"]
 size = Vector2(200, 200)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_lkdjt"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d1vy5"]
+resource_local_to_scene = true
 shader = ExtResource("3_2dwpv")
 shader_parameter/scroll_speed = 0.08
 shader_parameter/angle_degrees = 0.0
@@ -43,7 +44,7 @@ texture = ExtResource("3_3lhp5")
 
 [node name="DirArrows" type="Sprite2D" parent="Body/ArrowMask"]
 unique_name_in_owner = true
-material = SubResource("ShaderMaterial_lkdjt")
+material = SubResource("ShaderMaterial_d1vy5")
 texture = ExtResource("3_t4aoh")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

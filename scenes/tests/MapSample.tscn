@@ -15,15 +15,16 @@ facing = 0
 position = Vector2(0, -400)
 
 [node name="RobDirChanger4" parent="." instance=ExtResource("1_48btn")]
-position = Vector2(600, -400)
+position = Vector2(800, -400)
 facing = 2
 
 [node name="RobDirChanger5" parent="." instance=ExtResource("1_48btn")]
-position = Vector2(600, 400)
-facing = 0
+position = Vector2(800, 400)
+facing = 3
 
 [node name="RobDirChanger6" parent="." instance=ExtResource("1_48btn")]
 position = Vector2(-800, 400)
+facing = 0
 
 [node name="RobToy" parent="." instance=ExtResource("2_vhivp")]
 position = Vector2(-800, -400)
@@ -36,8 +37,8 @@ initial_dir = 1
 
 [node name="RobToy3" parent="." instance=ExtResource("2_vhivp")]
 position = Vector2(0, 400)
-rotation = 15.708
-initial_dir = 3
+rotation = 18.8496
+initial_dir = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.505, 0.505)

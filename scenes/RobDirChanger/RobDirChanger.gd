@@ -17,18 +17,18 @@ enum FACING_DIR { UP=0, RIGHT=1, DOWN=2, LEFT=3 }
 			_:
 				pass
 		facing = value
-var body_tween : Tween = Tween.new()
+var body_tween : Tween
 var direction : Vector2 = Vector2.RIGHT :
 	set(value) :
 		update_body(direction, value)
 		direction = value.normalized()
 
 var toys_entered : Array[RobToy] = []
-var can_focus : = true
+var locked : = false
 
 var focused := false :
 	set(value) :
-		if not can_focus :
+		if locked :
 			return
 		focused = value
 		_focus_entered() if focused else _focus_exited()
@@ -47,9 +47,15 @@ func _unhandled_input(event: InputEvent) -> void:
 		next_dir()
 
 func update_body(_from:Vector2, to:Vector2) :
-	$Body/ArrowMask.look_at(to)
+	# $Body/ArrowMask.look_at(to)
+	var to_point = global_position + to
+	var form_point = global_position + _from
+	var tw := create_tween()
+	tw.tween_method(%DirArrows.look_at, form_point, to_point, 0.1)
 	
 func next_dir() :
+	if locked :
+		return
 	direction = direction.rotated(PI/2)
 
 func _on_mouse_entered() -> void:
@@ -77,7 +83,7 @@ func _focus_entered() :
 	var mod_col : Color = Color('#0094C6') * 3.
 	mod_col.a = 1.0
 	$Body/Background.visible = true
-	if body_tween.is_valid() :
+	if body_tween and body_tween.is_valid() :
 		body_tween.kill()
 	body_tween = create_tween().set_parallel(true)
 	body_tween.tween_property($Body, 'modulate', mod_col, 0.1)
@@ -85,7 +91,9 @@ func _focus_entered() :
 	
 
 func _focus_exited() :
-	if body_tween.is_valid() :
+	if locked :
+		return
+	if body_tween and body_tween.is_valid() :
 		body_tween.kill()
 	body_tween = create_tween().set_parallel(true)
 	body_tween.tween_property($Body, 'modulate', Color('#FFF'), 0.1)
@@ -93,8 +101,8 @@ func _focus_exited() :
 	body_tween.chain().tween_property($Body/Background, 'visible', false, 0.0)
 
 func lock(_stepped:bool=true) :
+	locked = true
 	focused = false
-	can_focus = false
 	$Body.modulate = Color('#0FFF95') * 3
 	$Body.modulate.a = 1.0
 	# material.set_shader_parameter("some_value", some_value)
@@ -102,7 +110,7 @@ func lock(_stepped:bool=true) :
 	$Body/Background.visible = true
 
 func unlock() :
-	can_focus = true
+	locked = false
 	$Body.modulate = Color('#FFF')
 	$Body/Background.scale = Vector2.ONE
 	$Body/Background.visible = false
