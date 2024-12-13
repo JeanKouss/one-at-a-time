@@ -5,6 +5,7 @@ uniform float angle_degrees : hint_range(0, 360) = 45.0;
 uniform float repeat_x : hint_range(1, 20) = 20;
 uniform float repeat_y : hint_range(1, 20) = 12;
 uniform float row_offset : hint_range(0, 1) = 1;
+uniform vec4 modulate : source_color = vec4(1.);
 uniform sampler2D texture_to_scroll;
 
 void fragment() {
@@ -24,5 +25,5 @@ void fragment() {
  vec2 texelSize = vec2(1.0) / vec2(textureSize(texture_to_scroll, 0));
  vec2 snappedUV = round(scaled_uv / texelSize) * texelSize;
 
- COLOR = texture(texture_to_scroll, snappedUV);
+ COLOR = texture(texture_to_scroll, snappedUV) * modulate;
 }
