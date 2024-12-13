@@ -1,17 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://bmi5tsem3iw7n"]
+[gd_scene load_steps=9 format=3 uid="uid://bmi5tsem3iw7n"]
 
 [ext_resource type="Script" path="res://scenes/RobToy/RobToy.gd" id="1_0fnyv"]
-[ext_resource type="Texture2D" uid="uid://bywqghlbbgy8t" path="res://assets/textures/body-v2.png" id="2_150gn"]
+[ext_resource type="Texture2D" uid="uid://dl7n1hsmppe4y" path="res://assets/textures/triangle.png" id="2_u43h1"]
 [ext_resource type="Texture2D" uid="uid://dxokprh83hpmi" path="res://assets/textures/left-eye.png" id="3_etcpb"]
 [ext_resource type="Texture2D" uid="uid://beowbnrlf5pq4" path="res://assets/textures/right-eye.png" id="4_aytw3"]
 [ext_resource type="Texture2D" uid="uid://bt1mhvfjrbibo" path="res://assets/textures/arm.png" id="5_xffpl"]
 [ext_resource type="Script" path="res://scenes/RobToy/ExplosionParts.gd" id="6_e8kt6"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kktcp"]
-size = Vector2(80, 120)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g34rc"]
-size = Vector2(80, 120)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2pqjs"]
 radius = 25.8
@@ -25,14 +19,23 @@ collision_mask = 0
 motion_mode = 1
 script = ExtResource("1_0fnyv")
 
-[node name="RobToyCollisionShape" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_kktcp")
+[node name="RobToyCollisionShape" type="CollisionPolygon2D" parent="."]
+position = Vector2(-10, 2.84217e-14)
+polygon = PackedVector2Array(-40, 60, -40, -60, 60, -1.78873e-06)
+
+[node name="DestructionContactArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="DestructionContactArea"]
+polygon = PackedVector2Array(-50, 60, -50, -60, 50, -1.78873e-06)
 
 [node name="Body" type="Node2D" parent="."]
 rotation = -1.5708
 
 [node name="Body" type="Sprite2D" parent="Body"]
-texture = ExtResource("2_150gn")
+self_modulate = Color(0.0588235, 1, 0.584314, 1)
+texture = ExtResource("2_u43h1")
 
 [node name="LeftEye" type="Sprite2D" parent="Body"]
 position = Vector2(30, 30)
@@ -54,15 +57,9 @@ visible = false
 position = Vector2(90, 0)
 texture = ExtResource("5_xffpl")
 
-[node name="DestructionContactArea" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 9
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DestructionContactArea"]
-shape = SubResource("RectangleShape2D_g34rc")
-
 [node name="ExplosionParts" type="Node2D" parent="."]
 unique_name_in_owner = true
+visible = false
 script = ExtResource("6_e8kt6")
 
 [node name="RightEye" type="RigidBody2D" parent="ExplosionParts"]

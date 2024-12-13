@@ -1,9 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://cqrdpuvsq0yg3"]
+[gd_scene load_steps=8 format=3 uid="uid://cqrdpuvsq0yg3"]
 
 [ext_resource type="Script" path="res://scenes/RobDirChanger/RobDirChanger.gd" id="1_clyvo"]
+[ext_resource type="Texture2D" uid="uid://ddmyej56bsy3n" path="res://assets/textures/ground_square.png" id="2_n4llu"]
+[ext_resource type="Shader" path="res://scenes/RobDirChanger/dir-arrow-shader.gdshader" id="3_2dwpv"]
+[ext_resource type="Texture2D" uid="uid://crebeqh5ps1rk" path="res://assets/textures/dir-arrow-mask.png" id="3_3lhp5"]
+[ext_resource type="Texture2D" uid="uid://hv6ywmpfjm04" path="res://assets/textures/dir-arrows.png" id="3_t4aoh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3b04d"]
 size = Vector2(200, 200)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lkdjt"]
+shader = ExtResource("3_2dwpv")
+shader_parameter/scroll_speed = 0.08
+shader_parameter/angle_degrees = 0.0
+shader_parameter/repeat_x = 1.0
+shader_parameter/repeat_y = 1.0
+shader_parameter/row_offset = 1.0
+shader_parameter/texture_to_scroll = ExtResource("3_t4aoh")
 
 [node name="RobDirChanger" type="Area2D"]
 collision_layer = 2
@@ -16,8 +29,21 @@ shape = SubResource("RectangleShape2D_3b04d")
 [node name="Body" type="Node2D" parent="."]
 
 [node name="Arrow" type="Polygon2D" parent="Body"]
-rotation = 12.5664
+visible = false
+rotation = 6.28319
 polygon = PackedVector2Array(-30, 60, -30, -60, 70, -2.44784e-05)
+
+[node name="Background" type="Sprite2D" parent="Body"]
+visible = false
+texture = ExtResource("2_n4llu")
+
+[node name="ArrowMask" type="Sprite2D" parent="Body"]
+clip_children = 1
+texture = ExtResource("3_3lhp5")
+
+[node name="DirArrows" type="Sprite2D" parent="Body/ArrowMask"]
+material = SubResource("ShaderMaterial_lkdjt")
+texture = ExtResource("3_t4aoh")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

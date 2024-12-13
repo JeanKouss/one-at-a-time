@@ -24,7 +24,6 @@ facing = 0
 
 [node name="RobDirChanger6" parent="." instance=ExtResource("1_48btn")]
 position = Vector2(-800, 400)
-facing = 0
 
 [node name="RobToy" parent="." instance=ExtResource("2_vhivp")]
 position = Vector2(-800, -400)
@@ -32,7 +31,7 @@ rotation = 1.5708
 
 [node name="RobToy2" parent="." instance=ExtResource("2_vhivp")]
 position = Vector2(-400, 400)
-rotation = 18.8496
+rotation = 18.8495
 initial_dir = 1
 
 [node name="RobToy3" parent="." instance=ExtResource("2_vhivp")]

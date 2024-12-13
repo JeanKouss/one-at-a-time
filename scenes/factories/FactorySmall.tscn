@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dj6y7xe1nn0t7"]
+[gd_scene load_steps=4 format=3 uid="uid://dj6y7xe1nn0t7"]
+
+[ext_resource type="Texture2D" uid="uid://ddmyej56bsy3n" path="res://assets/textures/ground_square.png" id="1_fww12"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ekumq"]
 friction = 0.1
@@ -7,8 +9,17 @@ bounce = 0.9
 [sub_resource type="Environment" id="Environment_71e78"]
 background_mode = 3
 background_color = Color(0.519931, 0.340077, 0.593292, 1)
+glow_enabled = true
+glow_bloom = 0.3
 
 [node name="FactorySmall" type="Node2D"]
+
+[node name="Ground" type="Polygon2D" parent="."]
+texture_repeat = 2
+color = Color(1, 1, 1, 0.1)
+texture = ExtResource("1_fww12")
+texture_offset = Vector2(-100, -100)
+polygon = PackedVector2Array(-2580, -2350, 2740, -1990, 3040, 2360, -2890, 2410)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.5, 0.5)

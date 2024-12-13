@@ -35,9 +35,8 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("next") and focused :
 		next_dir()
 
-func update_body(from:Vector2, to:Vector2) :
-	var tween = create_tween()
-	tween.tween_method($Body/Arrow.look_at, from, to, 0.2)
+func update_body(_from:Vector2, to:Vector2) :
+	$Body/ArrowMask.look_at(to)
 	
 func next_dir() :
 	direction = direction.rotated(PI/2)

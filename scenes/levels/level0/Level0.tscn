@@ -25,7 +25,8 @@ initial_dir = 1
 
 [node name="Exits" type="Node2D" parent="."]
 
-[node name="Exit" parent="Exits" instance=ExtResource("4_tf3gf")]
+[node name="Exit" parent="Exits" node_paths=PackedStringArray("lev_node") instance=ExtResource("4_tf3gf")]
 z_index = 100
 position = Vector2(1220, 0)
 rotation = 3.14159
+lev_node = NodePath("../..")
