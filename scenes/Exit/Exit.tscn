@@ -1,18 +1,39 @@
-[gd_scene load_steps=5 format=3 uid="uid://b1s6wyq5vesfb"]
+[gd_scene load_steps=10 format=3 uid="uid://b1s6wyq5vesfb"]
 
 [ext_resource type="Script" path="res://scenes/Exit/Exit.gd" id="1_uyit1"]
 [ext_resource type="Texture2D" uid="uid://cvwyqia6bmk1" path="res://assets/textures/exit-entery.png" id="2_lkudh"]
+[ext_resource type="Texture2D" uid="uid://cgqfke0ocmxdb" path="res://addons/kenney_particle_pack/circle_05.png" id="3_yhxfx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jivt4"]
 radius = 20.0
+
+[sub_resource type="Curve" id="Curve_axhvw"]
+_data = [Vector2(0.0175953, 0), 0.0, 1.73721, 0, 0, Vector2(0.219941, 0.98504), 0.0, 0.0, 0, 0, Vector2(0.71261, 1), -0.291501, -0.291501, 0, 0, Vector2(1, 0), -10.3287, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_jfmjv"]
+curve = SubResource("Curve_axhvw")
+
+[sub_resource type="Curve" id="Curve_t506o"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.246334, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_vd2rq"]
+curve = SubResource("Curve_t506o")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_sihyy"]
 particle_flag_disable_z = true
 emission_shape = 3
 emission_box_extents = Vector3(20, 100, 1)
 spread = 15.1
-initial_velocity_min = -27.6
+initial_velocity_min = -30.0
+initial_velocity_max = -5.0
 gravity = Vector3(0, 0, 0)
+scale_min = 0.01
+scale_max = 0.05
+scale_curve = SubResource("CurveTexture_vd2rq")
+color = Color(3.784, 3.244, 0.584, 1)
+alpha_curve = SubResource("CurveTexture_jfmjv")
 
 [node name="Exit" type="Node2D"]
 script = ExtResource("1_uyit1")
@@ -24,7 +45,7 @@ color = Color(0.194349, 0.194349, 0.194349, 1)
 polygon = PackedVector2Array(70, -70, -70, -70, -70, 70, 70, 70)
 
 [node name="Entry" type="Sprite2D" parent="Body"]
-modulate = Color(2, 2, 2, 1)
+modulate = Color(3.784, 3.244, 0.584, 1)
 texture = ExtResource("2_lkudh")
 
 [node name="ExitConfirmationArea" type="Area2D" parent="."]
@@ -35,9 +56,12 @@ collision_layer = 4
 position = Vector2(-20, 0)
 shape = SubResource("CircleShape2D_jivt4")
 
-[node name="CPUParticles2D" type="GPUParticles2D" parent="."]
-position = Vector2(120, 0)
+[node name="AttractedParticles" type="GPUParticles2D" parent="."]
+position = Vector2(130, 0)
 amount = 15
 process_material = SubResource("ParticleProcessMaterial_sihyy")
+texture = ExtResource("3_yhxfx")
+
+[node name="ToyEnterParticles" type="GPUParticles2D" parent="."]
 
 [connection signal="body_entered" from="ExitConfirmationArea" to="." method="_on_exit_confirmation_area_body_entered"]

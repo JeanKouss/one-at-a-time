@@ -10,9 +10,10 @@ enum FACING_DIR {UP=0, RIGHT=1, DOWN=2, LEFT=3}
 @onready var explosion_parts := %ExplosionParts
 
 var direction := Vector2.ZERO
-
+var level_node : Level
 
 func _ready() -> void:
+	# get_level_node()
 	match initial_dir:
 		FACING_DIR.UP :
 			change_direction(Vector2.UP)
@@ -26,6 +27,10 @@ func _ready() -> void:
 			pass
 	move()
 
+# func get_level_node() :
+# 	var node = get_node_or_null('../..')
+# 	if node and node is Level :
+# 		level_node = node
 
 func move() :
 	if Engine.is_editor_hint() :
