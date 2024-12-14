@@ -1,0 +1,150 @@
+[gd_scene load_steps=9 format=3 uid="uid://d0gqt72onahbe"]
+
+[ext_resource type="Script" path="res://scenes/screens/home/HomeUI.gd" id="1_2vj2r"]
+[ext_resource type="FontFile" uid="uid://bromsfi4f0cgw" path="res://assets/fonts/GamjaFlower-Regular.ttf" id="1_cbyqw"]
+[ext_resource type="Texture2D" uid="uid://d3fxvlgsepcno" path="res://assets/textures/tight-border-200x200-frame.png" id="1_hjaol"]
+[ext_resource type="Texture2D" uid="uid://cavm6g7qiipcr" path="res://assets/textures/play-button.png" id="2_2mwih"]
+[ext_resource type="Texture2D" uid="uid://cfpwyiniwxugj" path="res://assets/textures/play-button-stroke.png" id="3_oj1ra"]
+[ext_resource type="PackedScene" uid="uid://bmi5tsem3iw7n" path="res://scenes/RobToy/RobToy.tscn" id="5_vsb85"]
+[ext_resource type="PackedScene" uid="uid://cqrdpuvsq0yg3" path="res://scenes/RobDirChanger/RobDirChanger.tscn" id="6_3utvc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_s32f6"]
+font = ExtResource("1_cbyqw")
+font_size = 121
+
+[node name="Home" type="Node2D"]
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+texture_repeat = 2
+texture = ExtResource("1_hjaol")
+texture_offset = Vector2(100, 100)
+polygon = PackedVector2Array(-2470, -1490, 2540, -1370, 2520, 1720, -2490, 1790)
+metadata/_edit_lock_ = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.5, 0.5)
+
+[node name="HomeUI" type="CanvasLayer" parent="."]
+script = ExtResource("1_2vj2r")
+
+[node name="Label" type="Label" parent="HomeUI"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -305.0
+offset_top = 181.0
+offset_right = 305.0
+offset_bottom = 303.0
+grow_horizontal = 2
+size_flags_vertical = 0
+text = "One at a time"
+label_settings = SubResource("LabelSettings_s32f6")
+
+[node name="OutlineContainer" type="CenterContainer" parent="HomeUI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.5
+offset_top = 39.0
+offset_right = 37.5
+offset_bottom = 121.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Outline" type="TextureRect" parent="HomeUI/OutlineContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(75, 82)
+layout_mode = 2
+texture = ExtResource("3_oj1ra")
+expand_mode = 1
+
+[node name="PlayButtonContainer" type="CenterContainer" parent="HomeUI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.5
+offset_top = 39.0
+offset_right = 37.5
+offset_bottom = 121.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayButton" type="TextureButton" parent="HomeUI/PlayButtonContainer"]
+unique_name_in_owner = true
+self_modulate = Color(0.0940666, 0.85, 0.068, 1)
+custom_minimum_size = Vector2(75, 82)
+layout_mode = 2
+texture_normal = ExtResource("2_2mwih")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Artifices" type="Node2D" parent="."]
+
+[node name="RobDirChanger" parent="Artifices" instance=ExtResource("6_3utvc")]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(-800, 200)
+
+[node name="RobDirChanger2" parent="Artifices" instance=ExtResource("6_3utvc")]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(1400, 200)
+facing = 3
+
+[node name="RobDirChanger3" parent="Artifices" instance=ExtResource("6_3utvc")]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(600, 400)
+facing = 0
+
+[node name="RobDirChanger4" parent="Artifices" instance=ExtResource("6_3utvc")]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(600, -400)
+facing = 3
+
+[node name="RobDirChanger5" parent="Artifices" instance=ExtResource("6_3utvc")]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(-1400, -400)
+facing = 2
+
+[node name="RobDirChanger6" parent="Artifices" instance=ExtResource("6_3utvc")]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(-1400, 400)
+
+[node name="RobDirChanger7" parent="Artifices" instance=ExtResource("6_3utvc")]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(800, 0)
+
+[node name="RobDirChanger8" parent="Artifices" instance=ExtResource("6_3utvc")]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(1600, 0)
+facing = 2
+
+[node name="RobDirChanger9" parent="Artifices" instance=ExtResource("6_3utvc")]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(1600, 800)
+facing = 3
+
+[node name="RobDirChanger10" parent="Artifices" instance=ExtResource("6_3utvc")]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(800, 800)
+facing = 0
+
+[node name="RobToy" parent="Artifices" instance=ExtResource("5_vsb85")]
+position = Vector2(-1400, 400)
+rotation = 3.21071e-06
+initial_dir = 1
+
+[node name="RobToy2" parent="Artifices" instance=ExtResource("5_vsb85")]
+position = Vector2(800, 800)
+rotation = -1.57079
+initial_dir = 0
+
+[node name="RobToy3" parent="Artifices" instance=ExtResource("5_vsb85")]
+position = Vector2(-2200, 200)
+rotation = 3.21865e-06
+initial_dir = 1
+
+[connection signal="mouse_entered" from="HomeUI/OutlineContainer/Outline" to="HomeUI" method="_on_outline_mouse_entered"]
+[connection signal="pressed" from="HomeUI/PlayButtonContainer/PlayButton" to="HomeUI" method="_on_play_button_pressed"]
