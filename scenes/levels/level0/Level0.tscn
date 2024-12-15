@@ -23,7 +23,6 @@ facing = 3
 position = Vector2(-1000, 0)
 rotation = 12.5664
 initial_dir = 1
-starting_delay = 1
 
 [node name="Exits" type="Node2D" parent="."]
 

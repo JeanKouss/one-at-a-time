@@ -75,6 +75,7 @@ text = "Score"
 label_settings = SubResource("LabelSettings_gf2bh")
 
 [node name="ScoreLabel" type="Label" parent="StatsBox/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "0/1"
 label_settings = SubResource("LabelSettings_a5p06")
