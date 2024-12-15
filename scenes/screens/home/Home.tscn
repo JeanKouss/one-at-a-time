@@ -27,6 +27,13 @@ zoom = Vector2(0.5, 0.5)
 [node name="HomeUI" type="CanvasLayer" parent="."]
 script = ExtResource("1_2vj2r")
 
+[node name="Panel" type="Panel" parent="HomeUI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="Label" type="Label" parent="HomeUI"]
 anchors_preset = 5
 anchor_left = 0.5
@@ -146,5 +153,4 @@ position = Vector2(-2200, 200)
 rotation = 3.21865e-06
 initial_dir = 1
 
-[connection signal="mouse_entered" from="HomeUI/OutlineContainer/Outline" to="HomeUI" method="_on_outline_mouse_entered"]
 [connection signal="pressed" from="HomeUI/PlayButtonContainer/PlayButton" to="HomeUI" method="_on_play_button_pressed"]

@@ -31,7 +31,8 @@ var focused := false :
 		if locked :
 			return
 		focused = value
-		_focus_entered() if focused else _focus_exited()
+		if focused : _focus_entered()
+		else : _focus_exited()
 
 
 func _ready() -> void:

@@ -6,6 +6,7 @@ enum FACING_DIR {UP=0, RIGHT=1, DOWN=2, LEFT=3}
 
 @export var initial_dir : FACING_DIR = FACING_DIR.DOWN
 @export var move_time := 1
+@export var starting_delay := 1
 
 @onready var explosion_parts := %ExplosionParts
 
@@ -25,6 +26,7 @@ func _ready() -> void:
 			change_direction(Vector2.LEFT)
 		_:
 			pass
+	await get_tree().create_timer(starting_delay).timeout
 	move()
 
 # func get_level_node() :

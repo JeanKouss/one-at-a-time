@@ -14,7 +14,8 @@ func _process(delta: float) -> void:
 
 
 func _on_play_button_pressed() -> void:
-	pass # Replace with function body.
+	LevelsController.send_next_level()
+	pass
 
 
 func trigger_play_button_anim() :
@@ -34,9 +35,3 @@ func trigger_play_button_anim() :
 	$PlayButtonContainer.scale = Vector2.ONE + Vector2(0.3, 0.3) * complement
 
 	
-	
-	
-
-
-func _on_outline_mouse_entered() -> void:
-	pass # Replace with function body.
