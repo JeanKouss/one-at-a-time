@@ -26,7 +26,7 @@ particle_flag_disable_z = true
 emission_shape = 3
 emission_box_extents = Vector3(20, 100, 1)
 spread = 15.1
-initial_velocity_min = -30.0
+initial_velocity_min = -50.0
 initial_velocity_max = -5.0
 gravity = Vector3(0, 0, 0)
 scale_min = 0.01
@@ -57,7 +57,7 @@ position = Vector2(-20, 0)
 shape = SubResource("CircleShape2D_jivt4")
 
 [node name="AttractedParticles" type="GPUParticles2D" parent="."]
-position = Vector2(130, 0)
+position = Vector2(150, 0)
 amount = 15
 process_material = SubResource("ParticleProcessMaterial_sihyy")
 texture = ExtResource("3_yhxfx")

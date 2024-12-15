@@ -2,6 +2,7 @@ extends Node2D
 class_name Level
 
 signal level_passed(n_exited:int, min_to_exit:int)
+signal toy_exited_map(n_exited:int, min2exit:int)
 
 @export var min_toy_to_exit : int = 1
 
@@ -22,6 +23,7 @@ func _on_toy_exited(toy:RobToy) :
 	if not toy is RobToy :
 		return
 	exited_toys += 1
+	toy_exited_map.emit(exited_toys, min_toy_to_exit)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -33,6 +35,18 @@ func is_level_passed() :
 		return false
 	return true
 
+
+func request_next_level() :
+	var cur_lev_id = int(name.replace('Level', ''))
+	LevelsController.send_next_level(cur_lev_id)
+
+func request_prev_level() :
+	var cur_lev_id = int(name.replace('Level', ''))
+	LevelsController.send_previous_level(cur_lev_id)
+
+func request_level_reload() :
+	var cur_lev_id = int(name.replace('Level', ''))
+	LevelsController.reload_level(cur_lev_id)
 
 func register_all_toys() :
 	for node in $Toys.get_children() :

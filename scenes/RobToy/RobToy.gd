@@ -14,7 +14,6 @@ var direction := Vector2.ZERO
 var level_node : Level
 
 func _ready() -> void:
-	# get_level_node()
 	match initial_dir:
 		FACING_DIR.UP :
 			change_direction(Vector2.UP)
@@ -29,10 +28,6 @@ func _ready() -> void:
 	await get_tree().create_timer(starting_delay).timeout
 	move()
 
-# func get_level_node() :
-# 	var node = get_node_or_null('../..')
-# 	if node and node is Level :
-# 		level_node = node
 
 func move() :
 	if Engine.is_editor_hint() :

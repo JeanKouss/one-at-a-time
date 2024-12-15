@@ -92,49 +92,49 @@ stretch_mode = 5
 [node name="Artifices" type="Node2D" parent="."]
 
 [node name="RobDirChanger" parent="Artifices" instance=ExtResource("6_3utvc")]
-modulate = Color(1, 1, 1, 0.54902)
+modulate = Color(1, 1, 1, 0.00392157)
 position = Vector2(-800, 200)
 
 [node name="RobDirChanger2" parent="Artifices" instance=ExtResource("6_3utvc")]
-modulate = Color(1, 1, 1, 0.54902)
+modulate = Color(1, 1, 1, 0.00392157)
 position = Vector2(1400, 200)
 facing = 3
 
 [node name="RobDirChanger3" parent="Artifices" instance=ExtResource("6_3utvc")]
-modulate = Color(1, 1, 1, 0.54902)
+modulate = Color(1, 1, 1, 0.00392157)
 position = Vector2(600, 400)
 facing = 0
 
 [node name="RobDirChanger4" parent="Artifices" instance=ExtResource("6_3utvc")]
-modulate = Color(1, 1, 1, 0.54902)
+modulate = Color(1, 1, 1, 0.00392157)
 position = Vector2(600, -400)
 facing = 3
 
 [node name="RobDirChanger5" parent="Artifices" instance=ExtResource("6_3utvc")]
-modulate = Color(1, 1, 1, 0.54902)
+modulate = Color(1, 1, 1, 0.00392157)
 position = Vector2(-1400, -400)
 facing = 2
 
 [node name="RobDirChanger6" parent="Artifices" instance=ExtResource("6_3utvc")]
-modulate = Color(1, 1, 1, 0.54902)
+modulate = Color(1, 1, 1, 0.00392157)
 position = Vector2(-1400, 400)
 
 [node name="RobDirChanger7" parent="Artifices" instance=ExtResource("6_3utvc")]
-modulate = Color(1, 1, 1, 0.54902)
+modulate = Color(1, 1, 1, 0.00392157)
 position = Vector2(800, 0)
 
 [node name="RobDirChanger8" parent="Artifices" instance=ExtResource("6_3utvc")]
-modulate = Color(1, 1, 1, 0.54902)
+modulate = Color(1, 1, 1, 0.00392157)
 position = Vector2(1600, 0)
 facing = 2
 
 [node name="RobDirChanger9" parent="Artifices" instance=ExtResource("6_3utvc")]
-modulate = Color(1, 1, 1, 0.54902)
+modulate = Color(1, 1, 1, 0.00392157)
 position = Vector2(1600, 800)
 facing = 3
 
 [node name="RobDirChanger10" parent="Artifices" instance=ExtResource("6_3utvc")]
-modulate = Color(1, 1, 1, 0.54902)
+modulate = Color(1, 1, 1, 0.00392157)
 position = Vector2(800, 800)
 facing = 0
 
@@ -142,15 +142,18 @@ facing = 0
 position = Vector2(-1400, 400)
 rotation = 3.21071e-06
 initial_dir = 1
+starting_delay = 1
 
 [node name="RobToy2" parent="Artifices" instance=ExtResource("5_vsb85")]
 position = Vector2(800, 800)
 rotation = -1.57079
 initial_dir = 0
+starting_delay = 1
 
 [node name="RobToy3" parent="Artifices" instance=ExtResource("5_vsb85")]
 position = Vector2(-2200, 200)
 rotation = 3.21865e-06
 initial_dir = 1
+starting_delay = 1
 
 [connection signal="pressed" from="HomeUI/PlayButtonContainer/PlayButton" to="HomeUI" method="_on_play_button_pressed"]

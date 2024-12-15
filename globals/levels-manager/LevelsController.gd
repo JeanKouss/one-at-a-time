@@ -16,6 +16,19 @@ func send_next_level(following:int=-1) :
 		return
 	SceneManager.change_scene(lv_path)
 
+func send_previous_level(of:int) :
+	var lv_path = levels.get(of-1)
+	if not lv_path :
+		push_error('No level before index ', of)
+		return
+	SceneManager.change_scene(lv_path)
+
+func reload_level(lv:int) :
+	var lv_path = levels.get(lv)
+	if not lv_path :
+		push_error('No level of index ', lv)
+		return
+	SceneManager.change_scene(lv_path)
 
 func scan_levels() :
 	var i = 0
