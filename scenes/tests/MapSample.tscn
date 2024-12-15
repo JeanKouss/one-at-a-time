@@ -29,19 +29,16 @@ facing = 0
 [node name="RobToy" parent="." instance=ExtResource("2_vhivp")]
 position = Vector2(-800, -400)
 rotation = 1.5708
-starting_delay = 1
 
 [node name="RobToy2" parent="." instance=ExtResource("2_vhivp")]
 position = Vector2(-400, 400)
 rotation = 18.8495
 initial_dir = 1
-starting_delay = 1
 
 [node name="RobToy3" parent="." instance=ExtResource("2_vhivp")]
 position = Vector2(0, 400)
 rotation = 18.8496
 initial_dir = 1
-starting_delay = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.505, 0.505)

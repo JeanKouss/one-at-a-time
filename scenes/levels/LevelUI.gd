@@ -10,6 +10,7 @@ func _ready() -> void:
 		if not level_node.is_node_ready() :
 			await level_node.ready
 		level_node.toy_exited_map.connect(update_score_ui)
+		%LevelName.text = "Level "+str(level_node.get_lev_id())
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

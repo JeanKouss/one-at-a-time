@@ -35,6 +35,8 @@ func is_level_passed() :
 		return false
 	return true
 
+func get_lev_id() :
+	return int(name.replace('Level', ''))
 
 func request_next_level() :
 	var cur_lev_id = int(name.replace('Level', ''))
