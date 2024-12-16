@@ -9,25 +9,28 @@
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_2kagx")
-min_toy_to_exit = 2
 
 [node name="FactorySmall" parent="." instance=ExtResource("2_ktu7d")]
 
 [node name="Directions" type="Node2D" parent="."]
 
 [node name="RobDirChanger" parent="Directions" instance=ExtResource("3_apnxy")]
+position = Vector2(-400, -400)
+facing = 3
+
+[node name="RobDirChanger3" parent="Directions" instance=ExtResource("3_apnxy")]
+position = Vector2(-1000, -400)
+facing = 3
+
+[node name="RobDirChanger4" parent="Directions" instance=ExtResource("3_apnxy")]
+position = Vector2(-1000, 0)
 facing = 3
 
 [node name="RobDirChanger2" parent="Directions" instance=ExtResource("3_apnxy")]
-position = Vector2(0, 400)
+position = Vector2(-400, 400)
 facing = 3
 
 [node name="Toys" type="Node2D" parent="."]
-
-[node name="RobToy" parent="Toys" instance=ExtResource("4_mc5cf")]
-position = Vector2(-1000, 0)
-rotation = 12.5664
-initial_dir = 1
 
 [node name="RobToy2" parent="Toys" instance=ExtResource("4_mc5cf")]
 position = Vector2(-1000, 400)
