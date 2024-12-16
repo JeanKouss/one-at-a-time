@@ -11,6 +11,7 @@ func _ready() -> void:
 		if not level_node.is_node_ready() :
 			await level_node.ready
 		level_node.toy_exited_map.connect(update_score_ui)
+		update_score_ui(0, level_node.min_toy_to_exit)
 		%LevelName.text = "Level "+str(level_node.get_lev_id())
 		level_node.level_passed.connect(_on_level_clear)
 

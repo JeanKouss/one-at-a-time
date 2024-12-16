@@ -34,7 +34,7 @@ func scan_levels() :
 	var i = 0
 	while true :
 		var lv_name = levels_dir_path + "level{0}/Level{0}.tscn".format([i])
-		if FileAccess.file_exists(lv_name) :
+		if ResourceLoader.exists(lv_name) :
 			levels[i] = lv_name
 			i += 1
 		else :
