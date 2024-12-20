@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://bsircxw0ep8mi"]
+
+[ext_resource type="FontFile" uid="uid://bromsfi4f0cgw" path="res://assets/fonts/GamjaFlower-Regular.ttf" id="1_a5rkr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fljdc"]
+font = ExtResource("1_a5rkr")
+font_size = 32
+
+[node name="LevelList" type="CanvasLayer"]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Levels"
+label_settings = SubResource("LabelSettings_fljdc")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 150
+theme_override_constants/margin_right = 150
+theme_override_constants/margin_bottom = 50
+
+[node name="FlowContainer" type="FlowContainer" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+
+[node name="Button" type="Button" parent="VBoxContainer/MarginContainer/FlowContainer"]
+custom_minimum_size = Vector2(125, 75)
+layout_mode = 2
+text = "Level xx"
