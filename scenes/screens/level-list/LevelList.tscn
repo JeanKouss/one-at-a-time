@@ -1,12 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://bsircxw0ep8mi"]
+[gd_scene load_steps=4 format=3 uid="uid://bsircxw0ep8mi"]
 
 [ext_resource type="FontFile" uid="uid://bromsfi4f0cgw" path="res://assets/fonts/GamjaFlower-Regular.ttf" id="1_a5rkr"]
+[ext_resource type="Script" path="res://scenes/screens/level-list/LevelList.gd" id="1_k7wdf"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_fljdc"]
 font = ExtResource("1_a5rkr")
 font_size = 32
 
 [node name="LevelList" type="CanvasLayer"]
+script = ExtResource("1_k7wdf")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchors_preset = 15
@@ -30,12 +32,8 @@ theme_override_constants/margin_left = 150
 theme_override_constants/margin_right = 150
 theme_override_constants/margin_bottom = 50
 
-[node name="FlowContainer" type="FlowContainer" parent="VBoxContainer/MarginContainer"]
+[node name="LevelButtonsContainer" type="FlowContainer" parent="VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/h_separation = 10
 theme_override_constants/v_separation = 10
-
-[node name="Button" type="Button" parent="VBoxContainer/MarginContainer/FlowContainer"]
-custom_minimum_size = Vector2(125, 75)
-layout_mode = 2
-text = "Level xx"
