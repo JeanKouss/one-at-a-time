@@ -50,6 +50,9 @@ func request_level_reload() :
 	var cur_lev_id = int(name.replace('Level', ''))
 	LevelsController.reload_level(cur_lev_id)
 
+func request_levels_list() :
+	LevelsController.load_level_list()
+
 func register_all_toys() :
 	for node in $Toys.get_children() :
 		if node is RobToy :

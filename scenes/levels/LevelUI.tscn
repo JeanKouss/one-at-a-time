@@ -1,18 +1,19 @@
-[gd_scene load_steps=13 format=3 uid="uid://b6p6r7uvspqvo"]
+[gd_scene load_steps=14 format=3 uid="uid://b6p6r7uvspqvo"]
 
 [ext_resource type="FontFile" uid="uid://bromsfi4f0cgw" path="res://assets/fonts/GamjaFlower-Regular.ttf" id="1_ee8wn"]
 [ext_resource type="Texture2D" uid="uid://c6hxhwvfieews" path="res://assets/icons/kenney/rewind.png" id="1_uhylo"]
 [ext_resource type="Script" path="res://scenes/levels/LevelUI.gd" id="1_vses1"]
 [ext_resource type="Texture2D" uid="uid://cvxx2n1wmffk8" path="res://assets/icons/kenney/return.png" id="2_l0f45"]
 [ext_resource type="Texture2D" uid="uid://t1wj1lnutcou" path="res://assets/icons/kenney/fastForward.png" id="3_jalx4"]
+[ext_resource type="Texture2D" uid="uid://d28uuuec52qa5" path="res://assets/icons/kenney/menuGrid.png" id="6_rt44m"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_gf2bh"]
 font = ExtResource("1_ee8wn")
-font_size = 25
+font_size = 30
 
 [sub_resource type="LabelSettings" id="LabelSettings_a5p06"]
 font = ExtResource("1_ee8wn")
-font_size = 30
+font_size = 40
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uemfm"]
 bg_color = Color(0.001, 0.035, 0.026, 0.811)
@@ -195,23 +196,30 @@ layout_mode = 2
 theme_override_constants/separation = 20
 
 [node name="PreviousLevel" type="TextureButton" parent="LevelBox/VBoxContainer/Navigations"]
-custom_minimum_size = Vector2(25, 25)
+custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 texture_normal = ExtResource("1_uhylo")
 ignore_texture_size = true
 stretch_mode = 5
 
 [node name="RestartLevel" type="TextureButton" parent="LevelBox/VBoxContainer/Navigations"]
-custom_minimum_size = Vector2(25, 25)
+custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 texture_normal = ExtResource("2_l0f45")
 ignore_texture_size = true
 stretch_mode = 5
 
 [node name="NextLevel" type="TextureButton" parent="LevelBox/VBoxContainer/Navigations"]
-custom_minimum_size = Vector2(25, 25)
+custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 texture_normal = ExtResource("3_jalx4")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="LevelsList" type="TextureButton" parent="LevelBox/VBoxContainer/Navigations"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("6_rt44m")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -273,3 +281,4 @@ libraries = {
 [connection signal="pressed" from="LevelBox/VBoxContainer/Navigations/PreviousLevel" to="." method="_on_previous_level_pressed"]
 [connection signal="pressed" from="LevelBox/VBoxContainer/Navigations/RestartLevel" to="." method="_on_restart_level_pressed"]
 [connection signal="pressed" from="LevelBox/VBoxContainer/Navigations/NextLevel" to="." method="_on_next_level_pressed"]
+[connection signal="pressed" from="LevelBox/VBoxContainer/Navigations/LevelsList" to="." method="_on_levels_list_pressed"]

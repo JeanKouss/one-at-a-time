@@ -38,5 +38,14 @@ func _on_restart_level_pressed() -> void:
 		return
 	level_node.request_level_reload()
 
+
+func _on_levels_list_pressed() -> void:
+	level_node.request_levels_list()
+
 func _on_level_clear(_n_exited:int, _min_to_exit:int) :
 	$AnimationPlayer.play('lev_clear')
+
+func _on_lev_clear_animation_finished() -> void:
+	if not level_node :
+		return
+	level_node.request_next_level()

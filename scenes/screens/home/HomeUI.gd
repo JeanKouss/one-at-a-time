@@ -14,7 +14,7 @@ func _process(delta: float) -> void:
 
 
 func _on_play_button_pressed() -> void:
-	LevelsController.send_next_level()
+	LevelsController.load_level_list()
 	pass
 
 
