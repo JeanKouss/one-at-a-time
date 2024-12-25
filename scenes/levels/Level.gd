@@ -68,3 +68,7 @@ func _on_toy_exiting(toy:RobToy) :
 			print('level clear')
 		else :
 			print('level failed')
+
+func is_valid() :
+	var n_toys = $Toys.get_child_count()
+	return n_toys >= min_toy_to_exit
