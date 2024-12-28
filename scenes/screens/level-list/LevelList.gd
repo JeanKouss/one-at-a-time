@@ -21,3 +21,4 @@ func init_lev_buttons() :
 		button.text = 'Level ' + str(lev)
 		button.button_down.connect(_on_lev_but_pressed.bind(lev))
 		%LevelButtonsContainer.add_child(button)
+		CursorManager.register_select_cursor(button, "mouse_entered", "mouse_exited")

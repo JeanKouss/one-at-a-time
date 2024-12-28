@@ -19,10 +19,12 @@ config/icon="res://icon.svg"
 
 LevelsController="*res://globals/levels-manager/LevelsController.gd"
 SceneManager="*res://addons/scene_manager/SceneManager.tscn"
+CursorManager="*res://globals/mouse-cursor-manager/CursorManager.gd"
 
 [display]
 
 window/stretch/mode="canvas_items"
+mouse_cursor/custom_image="res://assets/textures/cursors/pointer_c.png"
 
 [editor_plugins]
 

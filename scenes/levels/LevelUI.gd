@@ -14,6 +14,8 @@ func _ready() -> void:
 		update_score_ui(0, level_node.min_toy_to_exit)
 		%LevelName.text = "Level "+str(level_node.get_lev_id())
 		level_node.level_passed.connect(_on_level_clear)
+	for child in $LevelBox/VBoxContainer/Navigations.get_children() :
+		CursorManager.register_select_cursor(child, "mouse_entered", "mouse_exited")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

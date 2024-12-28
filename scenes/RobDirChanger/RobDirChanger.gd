@@ -36,6 +36,7 @@ var focused := false :
 
 
 func _ready() -> void:
+	CursorManager.register_rotation_cursor(self, "mouse_entered", "mouse_exited")
 	pass
 
 func _process(_delta: float) -> void:

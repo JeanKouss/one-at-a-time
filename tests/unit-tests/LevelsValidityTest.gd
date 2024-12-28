@@ -10,7 +10,7 @@ func test_levels() :
 		var lev = load(lev_path)
 		var level : Level = lev.instantiate()
 		if not level.is_valid() :
-			push_error('Level ', lev_path, ' is not valid')
+			print_rich('[color=red]Level ', lev_path, ' is not valid [/color]')
 		else :
-			print('Level ', lev_path, ' is valid')
+			print_rich('[color=green]Level ', lev_path, ' is valid [/color]')
 		level.queue_free()
