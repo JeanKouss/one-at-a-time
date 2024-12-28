@@ -28,7 +28,8 @@ var locked : = false
 
 var focused := false :
 	set(value) :
-		if locked :
+		if locked and value==false :
+			focused = false
 			return
 		focused = value
 		if focused : _focus_entered()
@@ -36,7 +37,8 @@ var focused := false :
 
 
 func _ready() -> void:
-	CursorManager.register_rotation_cursor(self, "mouse_entered", "mouse_exited")
+	if not Engine.is_editor_hint() :
+		CursorManager.register_rotation_cursor(self, "mouse_entered", "mouse_exited")
 	pass
 
 func _process(_delta: float) -> void:
@@ -104,7 +106,6 @@ func _focus_exited() :
 
 func lock(_stepped:bool=true) :
 	locked = true
-	focused = false
 	$Body.modulate = Color('#0FFF95') * 3
 	$Body.modulate.a = 1.0
 	# material.set_shader_parameter("some_value", some_value)
