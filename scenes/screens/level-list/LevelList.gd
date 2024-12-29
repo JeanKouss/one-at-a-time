@@ -13,6 +13,7 @@ func _process(_delta: float) -> void:
 	pass
 
 func _on_lev_but_pressed(lev_num:int) :
+	AudioPlayerManager.click()
 	LevelsController.reload_level(lev_num)
 
 func init_lev_buttons() :

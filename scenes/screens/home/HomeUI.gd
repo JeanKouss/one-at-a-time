@@ -14,6 +14,7 @@ func _process(delta: float) -> void:
 
 
 func _on_play_button_pressed() -> void:
+	AudioPlayerManager.click()
 	LevelsController.load_level_list()
 	pass
 

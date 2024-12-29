@@ -26,22 +26,26 @@ func update_score_ui(n_exited:int, min2exit:int) :
 	%ScoreLabel.text = str(n_exited)+'/'+str(min2exit)
 
 func _on_previous_level_pressed() -> void:
+	AudioPlayerManager.click()
 	if not level_node :
 		return
 	level_node.request_prev_level()
 
 func _on_next_level_pressed() -> void:
+	AudioPlayerManager.click()
 	if not level_node :
 		return
 	level_node.request_next_level()
 
 func _on_restart_level_pressed() -> void:
+	AudioPlayerManager.click()
 	if not level_node :
 		return
 	level_node.request_level_reload()
 
 
 func _on_levels_list_pressed() -> void:
+	AudioPlayerManager.click()
 	level_node.request_levels_list()
 
 func _on_level_clear(_n_exited:int, _min_to_exit:int) :

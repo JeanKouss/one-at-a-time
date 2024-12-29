@@ -36,12 +36,13 @@ alpha_curve = SubResource("CurveTexture_jfmjv")
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xh4ng"]
 particle_flag_align_y = true
 particle_flag_disable_z = true
-initial_velocity_min = 446.0
-initial_velocity_max = 624.5
+spread = 40.0
+initial_velocity_min = 988.86
+initial_velocity_max = 1100.0
 gravity = Vector3(0, 0, 0)
 scale_min = 0.05
 scale_max = 0.2
-color = Color(0, 4.512, 2.423, 1)
+color = Color(3.784, 3.244, 0.584, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jivt4"]
 radius = 20.0
@@ -57,7 +58,7 @@ texture = ExtResource("3_yhxfx")
 
 [node name="ToyEnterParticles" type="GPUParticles2D" parent="."]
 emitting = false
-amount = 20
+amount = 50
 process_material = SubResource("ParticleProcessMaterial_xh4ng")
 texture = ExtResource("4_x14y6")
 
