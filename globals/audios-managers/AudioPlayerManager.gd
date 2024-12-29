@@ -15,3 +15,6 @@ func dirFocused() -> void:
 
 func dirLocked() -> void:
 	$DirChangerLocked.play()
+
+func robExited() -> void:
+	$ExitSound.play()

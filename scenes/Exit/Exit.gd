@@ -23,3 +23,10 @@ func _on_exit_confirmation_area_body_entered(body:Node2D) -> void:
 		return
 	robtoy_exited.emit(body)
 	(body as RobToy).exit_map()
+	AudioPlayerManager.robExited()
+	emit_toy_exit_particles()
+
+func emit_toy_exit_particles() :
+	$ToyEnterParticles.emitting = true
+	await get_tree().create_timer(0.2).timeout
+	$ToyEnterParticles.emitting = false

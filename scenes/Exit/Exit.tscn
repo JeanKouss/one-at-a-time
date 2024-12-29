@@ -58,7 +58,7 @@ texture = ExtResource("3_yhxfx")
 
 [node name="ToyEnterParticles" type="GPUParticles2D" parent="."]
 emitting = false
-amount = 50
+amount = 70
 process_material = SubResource("ParticleProcessMaterial_xh4ng")
 texture = ExtResource("4_x14y6")
 
