@@ -24,7 +24,6 @@ shader_parameter/texture_to_scroll = ExtResource("3_t4aoh")
 collision_layer = 2
 monitorable = false
 script = ExtResource("1_clyvo")
-can_play_sound = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_3b04d")

@@ -16,6 +16,7 @@ func _process(_delta: float) -> void:
 func register_to_level() :
 	if not lev_node :
 		push_warning('Level node not setted for', self)
+		return
 	lev_node.register_exit_portal(self)
 
 func _on_exit_confirmation_area_body_entered(body:Node2D) -> void:

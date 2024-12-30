@@ -17,12 +17,10 @@ min_toy_to_exit = 2
 
 [node name="RobDirChanger" parent="Directions" instance=ExtResource("3_0x3sg")]
 facing = 3
-can_play_sound = null
 
 [node name="RobDirChanger2" parent="Directions" instance=ExtResource("3_0x3sg")]
 position = Vector2(0, 400)
 facing = 3
-can_play_sound = null
 
 [node name="Toys" type="Node2D" parent="."]
 
