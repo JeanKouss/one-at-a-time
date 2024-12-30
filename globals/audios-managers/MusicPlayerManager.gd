@@ -8,6 +8,7 @@ func playMenuMusic() -> void:
 	if current_playing_node :
 		var sound_fade_tween := create_tween()
 		sound_fade_tween.tween_property(current_playing_node, 'volume_db', -20, 1)
+		sound_fade_tween.tween_callback(current_playing_node.stop)
 		await sound_fade_tween.finished
 	$MenuMusic.volume_db = 0
 	$MenuMusic.play()
@@ -19,6 +20,7 @@ func playInGameMusic() -> void:
 	if current_playing_node :
 		var sound_fade_tween := create_tween()
 		sound_fade_tween.tween_property(current_playing_node, 'volume_db', -20, 1)
+		sound_fade_tween.tween_callback(current_playing_node.stop)
 		await sound_fade_tween.finished
 	$InGameMusic.volume_db = 0
 	$InGameMusic.play()
@@ -30,6 +32,7 @@ func playCreditsMusic() -> void:
 	if current_playing_node :
 		var sound_fade_tween = create_tween()
 		sound_fade_tween.tween_property(current_playing_node, 'volume_db', -20, 1)
+		sound_fade_tween.tween_callback(current_playing_node.stop)
 		await sound_fade_tween.finished
 	$CreditsMusic.volume_db = 0
 	$CreditsMusic.play()
