@@ -21,6 +21,7 @@ LevelsController="*res://globals/levels-manager/LevelsController.gd"
 SceneManager="*res://addons/scene_manager/SceneManager.tscn"
 CursorManager="*res://globals/mouse-cursor-manager/CursorManager.gd"
 AudioPlayerManager="*res://globals/audios-managers/AudioPlayerManager.tscn"
+MusicPlayerManager="*res://globals/audios-managers/MusicPlayerManager.tscn"
 
 [display]
 

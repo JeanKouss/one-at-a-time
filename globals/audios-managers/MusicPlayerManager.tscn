@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://bhg0n5pb6fs3g"]
+
+[ext_resource type="Script" path="res://globals/audios-managers/MusicPlayerManager.gd" id="1_pjil2"]
+[ext_resource type="AudioStream" uid="uid://d1m5la518vsyk" path="res://assets/audios/itchio/MenuMusic.ogg" id="2_inc8h"]
+[ext_resource type="AudioStream" uid="uid://dcpp6xmka3tgu" path="res://assets/audios/itchio/InGameMusic.ogg" id="3_j8mbk"]
+[ext_resource type="AudioStream" uid="uid://j5782kcafgee" path="res://assets/audios/itchio/Credits.ogg" id="4_f2p83"]
+
+[node name="MusicPlayerManager" type="Node"]
+script = ExtResource("1_pjil2")
+
+[node name="MenuMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_inc8h")
+
+[node name="InGameMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_j8mbk")
+
+[node name="CreditsMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_f2p83")

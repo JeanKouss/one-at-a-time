@@ -11,6 +11,7 @@ var toys : Array[RobToy] = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	MusicPlayerManager.playInGameMusic()
 	register_all_toys()
 	pass # Replace with function body.
 

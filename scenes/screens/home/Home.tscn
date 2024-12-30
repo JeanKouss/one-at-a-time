@@ -94,49 +94,59 @@ stretch_mode = 5
 [node name="RobDirChanger" parent="Artifices" instance=ExtResource("6_3utvc")]
 modulate = Color(1, 1, 1, 0.00392157)
 position = Vector2(-800, 200)
+can_play_sound = false
 
 [node name="RobDirChanger2" parent="Artifices" instance=ExtResource("6_3utvc")]
 modulate = Color(1, 1, 1, 0.00392157)
 position = Vector2(1400, 200)
 facing = 3
+can_play_sound = false
 
 [node name="RobDirChanger3" parent="Artifices" instance=ExtResource("6_3utvc")]
 modulate = Color(1, 1, 1, 0.00392157)
 position = Vector2(600, 400)
 facing = 0
+can_play_sound = false
 
 [node name="RobDirChanger4" parent="Artifices" instance=ExtResource("6_3utvc")]
 modulate = Color(1, 1, 1, 0.00392157)
 position = Vector2(600, -400)
 facing = 3
+can_play_sound = false
 
 [node name="RobDirChanger5" parent="Artifices" instance=ExtResource("6_3utvc")]
 modulate = Color(1, 1, 1, 0.00392157)
 position = Vector2(-1400, -400)
 facing = 2
+can_play_sound = false
 
 [node name="RobDirChanger6" parent="Artifices" instance=ExtResource("6_3utvc")]
 modulate = Color(1, 1, 1, 0.00392157)
 position = Vector2(-1400, 400)
+can_play_sound = false
 
 [node name="RobDirChanger7" parent="Artifices" instance=ExtResource("6_3utvc")]
 modulate = Color(1, 1, 1, 0.00392157)
 position = Vector2(800, 0)
+can_play_sound = false
 
 [node name="RobDirChanger8" parent="Artifices" instance=ExtResource("6_3utvc")]
 modulate = Color(1, 1, 1, 0.00392157)
 position = Vector2(1600, 0)
 facing = 2
+can_play_sound = false
 
 [node name="RobDirChanger9" parent="Artifices" instance=ExtResource("6_3utvc")]
 modulate = Color(1, 1, 1, 0.00392157)
 position = Vector2(1600, 800)
 facing = 3
+can_play_sound = false
 
 [node name="RobDirChanger10" parent="Artifices" instance=ExtResource("6_3utvc")]
 modulate = Color(1, 1, 1, 0.00392157)
 position = Vector2(800, 800)
 facing = 0
+can_play_sound = false
 
 [node name="RobToy" parent="Artifices" instance=ExtResource("5_vsb85")]
 position = Vector2(-1400, 400)

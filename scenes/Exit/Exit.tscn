@@ -65,6 +65,7 @@ texture = ExtResource("4_x14y6")
 [node name="Body" type="Node2D" parent="."]
 
 [node name="Box" type="Polygon2D" parent="Body"]
+visible = false
 color = Color(0.194349, 0.194349, 0.194349, 1)
 polygon = PackedVector2Array(70, -70, -70, -70, -70, 70, 70, 70)
 

@@ -4,6 +4,7 @@ var lev_button_scene := preload("res://scenes/screens/level-list/LevelButton.tsc
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	MusicPlayerManager.playMenuMusic()
 	init_lev_buttons()
 	pass
 

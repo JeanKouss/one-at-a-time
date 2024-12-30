@@ -17,6 +17,8 @@ enum FACING_DIR { UP=0, RIGHT=1, DOWN=2, LEFT=3 }
 			_:
 				pass
 		facing = value
+
+@export var can_play_sound : bool = true
 var body_tween : Tween
 var direction : Vector2 = Vector2.RIGHT :
 	set(value) :
@@ -60,7 +62,8 @@ func update_body(_from:Vector2, to:Vector2) :
 func next_dir() :
 	if locked :
 		return
-	AudioPlayerManager.dirChanged()
+	if can_play_sound :
+		AudioPlayerManager.dirChanged()
 	direction = direction.rotated(PI/2)
 
 func _on_mouse_entered() -> void:
@@ -85,7 +88,8 @@ func _on_body_exited(body:Node2D) -> void:
 		unlock()
 
 func _focus_entered() :
-	AudioPlayerManager.dirFocused()
+	if can_play_sound :
+		AudioPlayerManager.dirFocused()
 	var mod_col : Color = Color('#0094C6') * 3.
 	mod_col.a = 1.0
 	$Body/Background.visible = true
@@ -113,7 +117,8 @@ func lock(_stepped:bool=true) :
 	# material.set_shader_parameter("some_value", some_value)
 	$Body/Background.scale = Vector2.ONE
 	$Body/Background.visible = true
-	AudioPlayerManager.dirLocked()
+	if can_play_sound :
+		AudioPlayerManager.dirLocked()
 
 func unlock() :
 	locked = false
