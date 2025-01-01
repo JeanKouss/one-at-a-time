@@ -16,7 +16,6 @@ glow_hdr_scale = 2.1
 
 [node name="RobDirChanger" parent="." instance=ExtResource("1_la4hd")]
 position = Vector2(400, 400)
-can_play_sound = true
 
 [node name="Exit" parent="." instance=ExtResource("2_yfq21")]
 position = Vector2(1220, 400)

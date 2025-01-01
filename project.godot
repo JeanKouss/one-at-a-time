@@ -28,6 +28,10 @@ MusicPlayerManager="*res://globals/audios-managers/MusicPlayerManager.tscn"
 window/stretch/mode="canvas_items"
 mouse_cursor/custom_image="res://assets/textures/cursors/pointer_c.png"
 
+[editor]
+
+movie_writer/movie_file="D:/gh/mkdir_game_jam_project/movie/movie.avi"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/scene_manager/plugin.cfg")
