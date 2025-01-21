@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://i484fasf2v2q"]
+[gd_scene load_steps=13 format=3 uid="uid://i484fasf2v2q"]
 
 [ext_resource type="Script" path="res://scenes/levels/Level.gd" id="1_fbmix"]
 [ext_resource type="PackedScene" uid="uid://dj6y7xe1nn0t7" path="res://scenes/factories/FactorySmall.tscn" id="1_ixj1y"]
@@ -6,6 +6,70 @@
 [ext_resource type="PackedScene" uid="uid://bmi5tsem3iw7n" path="res://scenes/RobToy/RobToy.tscn" id="3_cdtq8"]
 [ext_resource type="PackedScene" uid="uid://b1s6wyq5vesfb" path="res://scenes/Exit/Exit.tscn" id="4_tf3gf"]
 [ext_resource type="PackedScene" uid="uid://b6p6r7uvspqvo" path="res://scenes/levels/LevelUI.tscn" id="6_t1yga"]
+[ext_resource type="FontFile" uid="uid://bromsfi4f0cgw" path="res://assets/fonts/GamjaFlower-Regular.ttf" id="7_k3sj3"]
+[ext_resource type="Texture2D" uid="uid://dkv7bqjuy6p6j" path="res://assets/textures/tuto-exit-arrow.png" id="8_yxx5x"]
+[ext_resource type="Texture2D" uid="uid://1kq6uc3m3axa" path="res://assets/textures/tuto-pad-arrow.png" id="9_4tmxb"]
+
+[sub_resource type="Animation" id="Animation_7bjt2"]
+resource_name = "animate_tuto_arrows"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Tuto-exit-arrow:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -0.401426, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Tuto-pad-arrow:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(40, -150), Vector2(60, -170), Vector2(40, -150)]
+}
+
+[sub_resource type="Animation" id="Animation_hl8ss"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Tuto-exit-arrow:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Tuto-pad-arrow:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(40, -150)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2ep2l"]
+_data = {
+"RESET": SubResource("Animation_hl8ss"),
+"animate_tuto_arrows": SubResource("Animation_7bjt2")
+}
 
 [node name="Level0" type="Node2D"]
 script = ExtResource("1_fbmix")
@@ -33,3 +97,37 @@ rotation = 3.14159
 lev_node = NodePath("../..")
 
 [node name="LevelUi" parent="." instance=ExtResource("6_t1yga")]
+
+[node name="Instruction1" type="Label" parent="."]
+offset_left = 100.0
+offset_top = -300.0
+offset_right = 652.0
+offset_bottom = -183.0
+theme_override_fonts/font = ExtResource("7_k3sj3")
+theme_override_font_sizes/font_size = 56
+text = "Click on the pad to change
+ the direction it points to."
+
+[node name="Instruction2" type="Label" parent="."]
+offset_left = 580.0
+offset_top = 220.0
+offset_right = 1132.0
+offset_bottom = 337.0
+theme_override_fonts/font = ExtResource("7_k3sj3")
+theme_override_font_sizes/font_size = 56
+text = "Make the green bot exit 
+by the yellow portal."
+
+[node name="Tuto-exit-arrow" type="Sprite2D" parent="."]
+position = Vector2(950, 120)
+texture = ExtResource("8_yxx5x")
+
+[node name="Tuto-pad-arrow" type="Sprite2D" parent="."]
+position = Vector2(40, -150)
+texture = ExtResource("9_4tmxb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_2ep2l")
+}
+autoplay = "animate_tuto_arrows"
