@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b6cyjlq7ry8yi"]
+[gd_scene load_steps=7 format=3 uid="uid://ncd0iux7bsnk"]
 
 [ext_resource type="Script" path="res://scenes/levels/Level.gd" id="1_r0pgq"]
 [ext_resource type="PackedScene" uid="uid://dj6y7xe1nn0t7" path="res://scenes/factories/FactorySmall.tscn" id="2_ywxst"]
@@ -9,25 +9,27 @@
 
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_r0pgq")
-min_toy_to_exit = 2
 
 [node name="FactorySmall" parent="." instance=ExtResource("2_ywxst")]
 
 [node name="Directions" type="Node2D" parent="."]
 
-[node name="RobDirChanger" parent="Directions" instance=ExtResource("3_0x3sg")]
-facing = 3
+[node name="RobDirChanger3" parent="Directions" instance=ExtResource("3_0x3sg")]
+position = Vector2(-200, -400)
+facing = 2
+
+[node name="RobDirChanger4" parent="Directions" instance=ExtResource("3_0x3sg")]
+position = Vector2(400, -400)
+
+[node name="RobDirChanger5" parent="Directions" instance=ExtResource("3_0x3sg")]
+position = Vector2(400, 0)
+facing = 2
 
 [node name="RobDirChanger2" parent="Directions" instance=ExtResource("3_0x3sg")]
-position = Vector2(0, 400)
+position = Vector2(-200, 400)
 facing = 3
 
 [node name="Toys" type="Node2D" parent="."]
-
-[node name="RobToy" parent="Toys" instance=ExtResource("4_ghujj")]
-position = Vector2(-1000, 0)
-rotation = 12.5664
-initial_dir = 1
 
 [node name="RobToy2" parent="Toys" instance=ExtResource("4_ghujj")]
 position = Vector2(-1000, 400)

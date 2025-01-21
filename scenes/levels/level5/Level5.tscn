@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://cjysa4iy5bmbh"]
+
+[ext_resource type="Script" path="res://scenes/levels/Level.gd" id="1_ytt7n"]
+[ext_resource type="PackedScene" uid="uid://dj6y7xe1nn0t7" path="res://scenes/factories/FactorySmall.tscn" id="2_s3gs8"]
+[ext_resource type="PackedScene" uid="uid://cqrdpuvsq0yg3" path="res://scenes/RobDirChanger/RobDirChanger.tscn" id="3_ny50y"]
+[ext_resource type="PackedScene" uid="uid://bmi5tsem3iw7n" path="res://scenes/RobToy/RobToy.tscn" id="4_levbd"]
+[ext_resource type="PackedScene" uid="uid://b1s6wyq5vesfb" path="res://scenes/Exit/Exit.tscn" id="5_3sfc5"]
+[ext_resource type="PackedScene" uid="uid://b6p6r7uvspqvo" path="res://scenes/levels/LevelUI.tscn" id="6_jvit2"]
+
+[node name="Level5" type="Node2D"]
+script = ExtResource("1_ytt7n")
+min_toy_to_exit = 2
+
+[node name="FactorySmall" parent="." instance=ExtResource("2_s3gs8")]
+
+[node name="Directions" type="Node2D" parent="."]
+
+[node name="RobDirChanger" parent="Directions" instance=ExtResource("3_ny50y")]
+position = Vector2(-200, 0)
+facing = 2
+
+[node name="RobDirChanger4" parent="Directions" instance=ExtResource("3_ny50y")]
+position = Vector2(400, 0)
+facing = 3
+
+[node name="RobDirChanger2" parent="Directions" instance=ExtResource("3_ny50y")]
+position = Vector2(-200, 400)
+facing = 3
+
+[node name="Toys" type="Node2D" parent="."]
+
+[node name="RobToy2" parent="Toys" instance=ExtResource("4_levbd")]
+position = Vector2(-1000, 400)
+rotation = 12.5664
+initial_dir = 1
+
+[node name="RobToy3" parent="Toys" instance=ExtResource("4_levbd")]
+position = Vector2(-1000, 0)
+rotation = 12.5664
+initial_dir = 1
+
+[node name="Exits" type="Node2D" parent="."]
+
+[node name="Exit" parent="Exits" node_paths=PackedStringArray("lev_node") instance=ExtResource("5_3sfc5")]
+z_index = 100
+position = Vector2(1220, 0)
+rotation = 3.14159
+lev_node = NodePath("../..")
+
+[node name="LevelUi" parent="." instance=ExtResource("6_jvit2")]

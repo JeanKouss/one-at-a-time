@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://ncd0iux7bsnk"]
+[gd_scene load_steps=7 format=3 uid="uid://h5rfv3akl8hx"]
 
 [ext_resource type="Script" path="res://scenes/levels/Level.gd" id="1_2kagx"]
 [ext_resource type="PackedScene" uid="uid://dj6y7xe1nn0t7" path="res://scenes/factories/FactorySmall.tscn" id="2_ktu7d"]
@@ -15,15 +15,7 @@ script = ExtResource("1_2kagx")
 [node name="Directions" type="Node2D" parent="."]
 
 [node name="RobDirChanger" parent="Directions" instance=ExtResource("3_apnxy")]
-position = Vector2(-400, -400)
-facing = 3
-
-[node name="RobDirChanger3" parent="Directions" instance=ExtResource("3_apnxy")]
-position = Vector2(-1000, -400)
-facing = 3
-
-[node name="RobDirChanger4" parent="Directions" instance=ExtResource("3_apnxy")]
-position = Vector2(-1000, 0)
+position = Vector2(-400, 0)
 facing = 3
 
 [node name="RobDirChanger2" parent="Directions" instance=ExtResource("3_apnxy")]
