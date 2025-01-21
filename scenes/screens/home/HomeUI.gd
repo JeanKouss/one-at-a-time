@@ -5,6 +5,7 @@ extends CanvasLayer
 func _ready() -> void:
 	MusicPlayerManager.playMenuMusic()
 	CursorManager.register_select_cursor(%PlayButton, "mouse_entered", "mouse_exited")
+	CursorManager.register_select_cursor(%ExitButton, "mouse_entered", "mouse_exited")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -36,4 +37,8 @@ func trigger_play_button_anim() :
 	$PlayButtonContainer.pivot_offset = %PlayButton.custom_minimum_size/2
 	$PlayButtonContainer.scale = Vector2.ONE + Vector2(0.3, 0.3) * complement
 
-	
+
+
+func _on_exit_button_pressed() -> void:
+	AudioPlayerManager.click()
+	get_tree().quit()

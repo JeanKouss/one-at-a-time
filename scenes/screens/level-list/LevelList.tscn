@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bsircxw0ep8mi"]
+[gd_scene load_steps=5 format=3 uid="uid://bsircxw0ep8mi"]
 
 [ext_resource type="FontFile" uid="uid://bromsfi4f0cgw" path="res://assets/fonts/GamjaFlower-Regular.ttf" id="1_a5rkr"]
 [ext_resource type="Script" path="res://scenes/screens/level-list/LevelList.gd" id="1_k7wdf"]
+[ext_resource type="Texture2D" uid="uid://bx5qbd0b317fi" path="res://assets/icons/kenney/arrowLeft.png" id="3_ydska"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_fljdc"]
 font = ExtResource("1_a5rkr")
@@ -37,3 +38,16 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/h_separation = 10
 theme_override_constants/v_separation = 10
+
+[node name="BackButton" type="Button" parent="."]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 140.0
+offset_bottom = 60.0
+theme_override_fonts/font = ExtResource("1_a5rkr")
+theme_override_font_sizes/font_size = 32
+text = "Back"
+icon = ExtResource("3_ydska")
+expand_icon = true
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

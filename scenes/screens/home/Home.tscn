@@ -89,6 +89,23 @@ texture_normal = ExtResource("2_2mwih")
 ignore_texture_size = true
 stretch_mode = 5
 
+[node name="ExitButton" type="Button" parent="HomeUI"]
+unique_name_in_owner = true
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -18.5
+offset_top = -108.475
+offset_right = 18.5
+offset_bottom = -77.475
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_cbyqw")
+theme_override_font_sizes/font_size = 45
+text = "Exit"
+
 [node name="Artifices" type="Node2D" parent="."]
 
 [node name="RobDirChanger" parent="Artifices" instance=ExtResource("6_3utvc")]
@@ -164,3 +181,4 @@ rotation = 3.21865e-06
 initial_dir = 1
 
 [connection signal="pressed" from="HomeUI/PlayButtonContainer/PlayButton" to="HomeUI" method="_on_play_button_pressed"]
+[connection signal="pressed" from="HomeUI/ExitButton" to="HomeUI" method="_on_exit_button_pressed"]

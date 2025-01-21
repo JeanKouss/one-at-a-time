@@ -6,6 +6,7 @@ var lev_button_scene := preload("res://scenes/screens/level-list/LevelButton.tsc
 func _ready() -> void:
 	MusicPlayerManager.playMenuMusic()
 	init_lev_buttons()
+	CursorManager.register_select_cursor($BackButton, "mouse_entered", "mouse_exited")
 	pass
 
 
@@ -24,3 +25,7 @@ func init_lev_buttons() :
 		button.button_down.connect(_on_lev_but_pressed.bind(lev))
 		%LevelButtonsContainer.add_child(button)
 		CursorManager.register_select_cursor(button, "mouse_entered", "mouse_exited")
+
+func _on_back_button_pressed() -> void:
+	AudioPlayerManager.click()
+	SceneManager.change_scene("res://scenes/screens/home/Home.tscn")
