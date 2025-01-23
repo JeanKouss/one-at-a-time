@@ -2,6 +2,7 @@ extends Node2D
 class_name Level
 
 signal level_passed(n_exited:int, min_to_exit:int)
+signal level_failed
 signal toy_exited_map(n_exited:int, min2exit:int)
 
 @export var min_toy_to_exit : int = 1
@@ -68,6 +69,7 @@ func _on_toy_exiting(toy:RobToy) :
 			level_passed.emit(exited_toys, min_toy_to_exit)
 			print('level clear')
 		else :
+			level_failed.emit()
 			print('level failed')
 
 func is_valid() :

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b6p6r7uvspqvo"]
+[gd_scene load_steps=17 format=3 uid="uid://b6p6r7uvspqvo"]
 
 [ext_resource type="FontFile" uid="uid://bromsfi4f0cgw" path="res://assets/fonts/GamjaFlower-Regular.ttf" id="1_ee8wn"]
 [ext_resource type="Texture2D" uid="uid://c6hxhwvfieews" path="res://assets/icons/kenney/rewind.png" id="1_uhylo"]
@@ -23,6 +23,16 @@ font = ExtResource("1_ee8wn")
 font_size = 40
 shadow_size = 4
 shadow_color = Color(0.174691, 0.501312, 0.39972, 0.74902)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uic5j"]
+bg_color = Color(0.21, 0.063455, 0.0441, 0.811765)
+
+[sub_resource type="LabelSettings" id="LabelSettings_1kyx8"]
+font = ExtResource("1_ee8wn")
+font_size = 40
+font_color = Color(0.883263, 0, 0.0707149, 1)
+shadow_size = 4
+shadow_color = Color(0.712017, 0.139825, 0.285214, 0.74902)
 
 [sub_resource type="Animation" id="Animation_x8p0i"]
 length = 0.001
@@ -85,6 +95,42 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("LevelFailedPanel:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 250)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("LevelFailedPanel:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("LevelFailedPanel:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_l75w1"]
@@ -165,10 +211,51 @@ tracks/5/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_4k5kv"]
+resource_name = "lev_failed"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LevelFailedPanel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0666667, 0.566667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 300), Vector2(0, 250)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LevelFailedPanel:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LevelFailedPanel:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_o8qou"]
 _data = {
 "RESET": SubResource("Animation_x8p0i"),
-"lev_clear": SubResource("Animation_l75w1")
+"lev_clear": SubResource("Animation_l75w1"),
+"lev_failed": SubResource("Animation_4k5kv")
 }
 
 [node name="LevelUi" type="CanvasLayer"]
@@ -273,6 +360,59 @@ label_settings = SubResource("LabelSettings_78hhw")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="LevelFailedPanel" type="Panel" parent="."]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -74.0
+offset_bottom = 74.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_uic5j")
+
+[node name="Label" type="Label" parent="LevelFailedPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -58.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Level Failed!"
+label_settings = SubResource("LabelSettings_1kyx8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="LevelFailedPanel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -45.0
+offset_top = -52.0
+offset_right = 45.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 30
+
+[node name="LevelsList" type="TextureButton" parent="LevelFailedPanel/HBoxContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("6_rt44m")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="RestartLevel" type="TextureButton" parent="LevelFailedPanel/HBoxContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("2_l0f45")
+ignore_texture_size = true
+stretch_mode = 5
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_o8qou")
@@ -282,3 +422,5 @@ libraries = {
 [connection signal="pressed" from="LevelBox/VBoxContainer/Navigations/RestartLevel" to="." method="_on_restart_level_pressed"]
 [connection signal="pressed" from="LevelBox/VBoxContainer/Navigations/NextLevel" to="." method="_on_next_level_pressed"]
 [connection signal="pressed" from="LevelBox/VBoxContainer/Navigations/LevelsList" to="." method="_on_levels_list_pressed"]
+[connection signal="pressed" from="LevelFailedPanel/HBoxContainer/LevelsList" to="." method="_on_levels_list_pressed"]
+[connection signal="pressed" from="LevelFailedPanel/HBoxContainer/RestartLevel" to="." method="_on_restart_level_pressed"]
