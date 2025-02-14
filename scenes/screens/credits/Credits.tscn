@@ -1,0 +1,92 @@
+[gd_scene load_steps=5 format=3 uid="uid://c4aeqw3lwmhsr"]
+
+[ext_resource type="Script" path="res://scenes/screens/credits/Credits.gd" id="1_8at3c"]
+[ext_resource type="FontFile" uid="uid://bromsfi4f0cgw" path="res://assets/fonts/GamjaFlower-Regular.ttf" id="1_becqt"]
+[ext_resource type="Texture2D" uid="uid://bx5qbd0b317fi" path="res://assets/icons/kenney/arrowLeft.png" id="2_cm68y"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5aq0m"]
+font = ExtResource("1_becqt")
+font_size = 100
+font_color = Color(1, 1, 0.560784, 1)
+outline_size = 115
+outline_color = Color(0.318287, 0.12198, 0.450025, 1)
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8at3c")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Thank"
+label_settings = SubResource("LabelSettings_5aq0m")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Kenney" type="LinkButton" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.560784, 1)
+theme_override_fonts/font = ExtResource("1_becqt")
+theme_override_font_sizes/font_size = 40
+text = "Kenney"
+underline = 1
+uri = "https://kenney.nl/"
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_becqt")
+theme_override_font_sizes/font_size = 40
+text = "for UI icons and UI sounds"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="NotAJam" type="LinkButton" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.560784, 1)
+theme_override_fonts/font = ExtResource("1_becqt")
+theme_override_font_sizes/font_size = 40
+text = "Not A Jam"
+underline = 1
+uri = "https://not-jam.itch.io/not-jam-music-pack"
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_becqt")
+theme_override_font_sizes/font_size = 40
+text = "for Musics"
+
+[node name="BackButton" type="Button" parent="."]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 140.0
+offset_bottom = 60.0
+theme_override_fonts/font = ExtResource("1_becqt")
+theme_override_font_sizes/font_size = 32
+text = "Back"
+icon = ExtResource("2_cm68y")
+expand_icon = true
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
