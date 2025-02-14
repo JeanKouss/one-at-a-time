@@ -7,10 +7,6 @@ border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
 border_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 5
 corner_detail = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cqisn"]
@@ -20,23 +16,15 @@ border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
 border_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 5
 corner_detail = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nmjh2"]
-bg_color = Color(1.03481e-06, 0.266923, 0.358715, 1)
+bg_color = Color(0.154466, 0.233997, 0.0431734, 1)
 border_width_left = 5
 border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
-border_color = Color(0, 0.933333, 1, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 5
+border_color = Color(1, 1, 0.560784, 1)
 corner_detail = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ho3mo"]
@@ -46,10 +34,6 @@ border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
 border_color = Color(0.909804, 0.301961, 0.301961, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 5
 corner_detail = 20
 
 [sub_resource type="Theme" id="Theme_3xm3c"]
