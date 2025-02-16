@@ -3,7 +3,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	MusicPlayerManager.playMenuMusic()
+	MusicPlayerManager.playCreditsMusic()
 	CursorManager.register_select_cursor($BackButton, "mouse_entered", "mouse_exited")
 
 

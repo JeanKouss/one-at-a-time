@@ -79,6 +79,7 @@ theme_override_font_sizes/font_size = 40
 text = "for Musics"
 
 [node name="BackButton" type="Button" parent="."]
+layout_mode = 0
 offset_left = 20.0
 offset_top = 20.0
 offset_right = 140.0
