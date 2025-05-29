@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://801gvck7wkpu"]
 
-[ext_resource type="Script" path="res://scenes/levels/Level.gd" id="1_8t3ss"]
+[ext_resource type="Script" uid="uid://c2wegysteragl" path="res://scenes/levels/Level.gd" id="1_8t3ss"]
 [ext_resource type="PackedScene" uid="uid://dj6y7xe1nn0t7" path="res://scenes/factories/FactorySmall.tscn" id="2_724a2"]
 [ext_resource type="PackedScene" uid="uid://cqrdpuvsq0yg3" path="res://scenes/RobDirChanger/RobDirChanger.tscn" id="3_3humi"]
 [ext_resource type="PackedScene" uid="uid://bmi5tsem3iw7n" path="res://scenes/RobToy/RobToy.tscn" id="4_4h6fc"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://ceuisf4g81ugt"]
 
 [ext_resource type="AudioStream" uid="uid://c8mqxlany03lq" path="res://assets/audios/kenney/click.ogg" id="1_gyvv3"]
-[ext_resource type="Script" path="res://globals/audios-managers/AudioPlayerManager.gd" id="1_twhy3"]
+[ext_resource type="Script" uid="uid://bbnbc2lx00vcj" path="res://globals/audios-managers/AudioPlayerManager.gd" id="1_twhy3"]
 [ext_resource type="AudioStream" uid="uid://dnv7y2ht1q8gr" path="res://assets/audios/kenney/dir_changing.ogg" id="3_8jdqf"]
 [ext_resource type="AudioStream" uid="uid://c0r52a8cpbi1n" path="res://assets/audios/kenney/dir_changer_selected.ogg" id="4_u2jka"]
 [ext_resource type="AudioStream" uid="uid://c2lgb2lwbv6b8" path="res://assets/audios/kenney/dir_focused.ogg" id="5_sdq2l"]

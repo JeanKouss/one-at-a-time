@@ -1,11 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://bhg0n5pb6fs3g"]
+[gd_scene load_steps=10 format=3 uid="uid://bhg0n5pb6fs3g"]
 
-[ext_resource type="Script" path="res://globals/audios-managers/MusicPlayerManager.gd" id="1_pjil2"]
+[ext_resource type="Script" uid="uid://7bpsyvpkcy0" path="res://globals/audios-managers/MusicPlayerManager.gd" id="1_pjil2"]
 [ext_resource type="AudioStream" uid="uid://d1m5la518vsyk" path="res://assets/audios/itchio/MenuMusic.ogg" id="2_inc8h"]
 [ext_resource type="AudioStream" uid="uid://dcpp6xmka3tgu" path="res://assets/audios/itchio/InGameMusic.ogg" id="3_j8mbk"]
 [ext_resource type="AudioStream" uid="uid://j5782kcafgee" path="res://assets/audios/itchio/Credits.ogg" id="4_f2p83"]
 [ext_resource type="Texture2D" uid="uid://1ltvf24pustj" path="res://assets/icons/kenney/musicOn.png" id="5_fllhd"]
+[ext_resource type="PackedScene" uid="uid://7ysavqyupudj" path="res://scenes/MobileAdaptaters/TouchScreenToPress.tscn" id="6_ajro5"]
 [ext_resource type="Texture2D" uid="uid://d1xaaweahriwe" path="res://assets/icons/kenney/musicOff.png" id="6_fmegi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pmuki"]
+size = Vector2(61.82, 52.125)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_64cnx"]
+size = Vector2(61.82, 52.125)
 
 [node name="MusicPlayerManager" type="Node"]
 script = ExtResource("1_pjil2")
@@ -45,11 +52,19 @@ texture_normal = ExtResource("5_fllhd")
 ignore_texture_size = true
 stretch_mode = 4
 
+[node name="TouchScreenButton" parent="CanvasLayer/MarginContainer/MusicOnButton" instance=ExtResource("6_ajro5")]
+position = Vector2(28, 25)
+shape = SubResource("RectangleShape2D_pmuki")
+
 [node name="MusicOffButton" type="TextureButton" parent="CanvasLayer/MarginContainer"]
 layout_mode = 2
 texture_normal = ExtResource("6_fmegi")
 ignore_texture_size = true
 stretch_mode = 4
+
+[node name="TouchScreenButton" parent="CanvasLayer/MarginContainer/MusicOffButton" instance=ExtResource("6_ajro5")]
+position = Vector2(28, 25)
+shape = SubResource("RectangleShape2D_64cnx")
 
 [connection signal="pressed" from="CanvasLayer/MarginContainer/MusicOnButton" to="." method="_on_music_on_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/MusicOffButton" to="." method="_on_music_off_button_pressed"]

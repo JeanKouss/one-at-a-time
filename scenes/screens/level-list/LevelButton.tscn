@@ -1,4 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://bhhkq55whafsl"]
+[gd_scene load_steps=8 format=3 uid="uid://bhhkq55whafsl"]
+
+[ext_resource type="PackedScene" uid="uid://7ysavqyupudj" path="res://scenes/MobileAdaptaters/TouchScreenToPress.tscn" id="1_p7obh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6qolk"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -42,7 +44,14 @@ Button/styles/hover = SubResource("StyleBoxFlat_cqisn")
 Button/styles/normal = SubResource("StyleBoxFlat_nmjh2")
 Button/styles/pressed = SubResource("StyleBoxFlat_ho3mo")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2i1g4"]
+size = Vector2(136.31, 77.055)
+
 [node name="Button" type="Button"]
 custom_minimum_size = Vector2(125, 75)
 theme = SubResource("Theme_3xm3c")
 text = "Level xx"
+
+[node name="TouchScreenButton" parent="." instance=ExtResource("1_p7obh")]
+position = Vector2(62, 37)
+shape = SubResource("RectangleShape2D_2i1g4")

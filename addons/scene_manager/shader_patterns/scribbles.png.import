@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bgcid7fyjtd30"
 path.s3tc="res://.godot/imported/scribbles.png-430a0f7331a442eb053961f8e9bb82f0.s3tc.ctex"
+path.etc2="res://.godot/imported/scribbles.png-430a0f7331a442eb053961f8e9bb82f0.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://addons/scene_manager/shader_patterns/scribbles.png"
-dest_files=["res://.godot/imported/scribbles.png-430a0f7331a442eb053961f8e9bb82f0.s3tc.ctex"]
+dest_files=["res://.godot/imported/scribbles.png-430a0f7331a442eb053961f8e9bb82f0.s3tc.ctex", "res://.godot/imported/scribbles.png-430a0f7331a442eb053961f8e9bb82f0.etc2.ctex"]
 
 [params]
 

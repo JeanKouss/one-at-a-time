@@ -22,7 +22,7 @@ func init_lev_buttons() :
 	for lev in LevelsController.levels :
 		var button : Button = lev_button_scene.instantiate()
 		button.text = 'Level ' + str(lev)
-		button.button_down.connect(_on_lev_but_pressed.bind(lev))
+		button.pressed.connect(_on_lev_but_pressed.bind(lev))
 		%LevelButtonsContainer.add_child(button)
 		CursorManager.register_select_cursor(button, "mouse_entered", "mouse_exited")
 
