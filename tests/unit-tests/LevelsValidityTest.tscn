@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dsh5kuq2us5l0"]
 
-[ext_resource type="Script" path="res://tests/unit-tests/LevelsValidityTest.gd" id="1_8wstg"]
+[ext_resource type="Script" uid="uid://bbeccj7ik3y5w" path="res://tests/unit-tests/LevelsValidityTest.gd" id="1_8wstg"]
 
 [node name="LevelsValidityTest" type="Node"]
 script = ExtResource("1_8wstg")

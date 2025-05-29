@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://b1s6wyq5vesfb"]
 
-[ext_resource type="Script" path="res://scenes/Exit/Exit.gd" id="1_uyit1"]
+[ext_resource type="Script" uid="uid://de0jf3eou6ntf" path="res://scenes/Exit/Exit.gd" id="1_uyit1"]
 [ext_resource type="Texture2D" uid="uid://cvwyqia6bmk1" path="res://assets/textures/exit-entery.png" id="2_lkudh"]
 [ext_resource type="Texture2D" uid="uid://cgqfke0ocmxdb" path="res://addons/kenney_particle_pack/circle_05.png" id="3_yhxfx"]
 [ext_resource type="Texture2D" uid="uid://dl7n1hsmppe4y" path="res://assets/textures/triangle.png" id="4_x14y6"]

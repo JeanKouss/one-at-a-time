@@ -52,6 +52,9 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("next") and focused :
 		next_dir()
 
+func _on_touch() -> void:
+	next_dir()
+
 func update_body(_from:Vector2, to:Vector2) :
 	# $Body/ArrowMask.look_at(to)
 	var to_point = global_position + to
@@ -125,3 +128,5 @@ func unlock() :
 	$Body.modulate = Color('#FFF')
 	$Body/Background.scale = Vector2.ONE
 	$Body/Background.visible = false
+
+

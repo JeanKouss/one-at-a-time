@@ -19,7 +19,7 @@ void fragment() {
 
  offset_uv.x += offset;
 
- vec2 scaled_uv = vec2(fract(offset_uv.x * repeat_x), 
+ vec2 scaled_uv = vec2(fract(offset_uv.x * repeat_x),
               fract(offset_uv.y * repeat_y));
 
  vec2 texelSize = vec2(1.0) / vec2(textureSize(texture_to_scroll, 0));

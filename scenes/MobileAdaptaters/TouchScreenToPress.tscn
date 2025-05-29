@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://7ysavqyupudj"]
+
+[ext_resource type="Script" uid="uid://rfpme1as1f7h" path="res://scenes/MobileAdaptaters/TouchScreenToPress.gd" id="1_qrf0r"]
+
+[node name="TouchScreenButton" type="TouchScreenButton"]
+script = ExtResource("1_qrf0r")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

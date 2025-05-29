@@ -1,12 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://cqrdpuvsq0yg3"]
+[gd_scene load_steps=9 format=3 uid="uid://cqrdpuvsq0yg3"]
 
-[ext_resource type="Script" path="res://scenes/RobDirChanger/RobDirChanger.gd" id="1_clyvo"]
+[ext_resource type="Script" uid="uid://c8d8fj7xt6n3d" path="res://scenes/RobDirChanger/RobDirChanger.gd" id="1_clyvo"]
 [ext_resource type="Texture2D" uid="uid://ddmyej56bsy3n" path="res://assets/textures/ground_square.png" id="2_n4llu"]
-[ext_resource type="Shader" path="res://scenes/RobDirChanger/dir-arrow-shader.gdshader" id="3_2dwpv"]
+[ext_resource type="Shader" uid="uid://x31ks2fpi80" path="res://scenes/RobDirChanger/dir-arrow-shader.gdshader" id="3_2dwpv"]
 [ext_resource type="Texture2D" uid="uid://crebeqh5ps1rk" path="res://assets/textures/dir-arrow-mask.png" id="3_3lhp5"]
 [ext_resource type="Texture2D" uid="uid://hv6ywmpfjm04" path="res://assets/textures/dir-arrows.png" id="3_t4aoh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3b04d"]
+size = Vector2(200, 200)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d8vfm"]
 size = Vector2(200, 200)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_d1vy5"]
@@ -27,6 +30,9 @@ script = ExtResource("1_clyvo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_3b04d")
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+shape = SubResource("RectangleShape2D_d8vfm")
 
 [node name="Body" type="Node2D" parent="."]
 
@@ -51,3 +57,4 @@ texture = ExtResource("3_t4aoh")
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="TouchScreenButton" to="." method="_on_touch"]

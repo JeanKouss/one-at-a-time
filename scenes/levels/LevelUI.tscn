@@ -1,15 +1,19 @@
-[gd_scene load_steps=17 format=3 uid="uid://b6p6r7uvspqvo"]
+[gd_scene load_steps=20 format=3 uid="uid://b6p6r7uvspqvo"]
 
 [ext_resource type="FontFile" uid="uid://bromsfi4f0cgw" path="res://assets/fonts/GamjaFlower-Regular.ttf" id="1_ee8wn"]
 [ext_resource type="Texture2D" uid="uid://c6hxhwvfieews" path="res://assets/icons/kenney/rewind.png" id="1_uhylo"]
-[ext_resource type="Script" path="res://scenes/levels/LevelUI.gd" id="1_vses1"]
+[ext_resource type="Script" uid="uid://e04ujacic8au" path="res://scenes/levels/LevelUI.gd" id="1_vses1"]
 [ext_resource type="Texture2D" uid="uid://cvxx2n1wmffk8" path="res://assets/icons/kenney/return.png" id="2_l0f45"]
 [ext_resource type="Texture2D" uid="uid://t1wj1lnutcou" path="res://assets/icons/kenney/fastForward.png" id="3_jalx4"]
+[ext_resource type="PackedScene" uid="uid://7ysavqyupudj" path="res://scenes/MobileAdaptaters/TouchScreenToPress.tscn" id="4_o8jf8"]
 [ext_resource type="Texture2D" uid="uid://d28uuuec52qa5" path="res://assets/icons/kenney/menuGrid.png" id="6_rt44m"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_gf2bh"]
 font = ExtResource("1_ee8wn")
 font_size = 30
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1qbhw"]
+size = Vector2(45.545, 48.83)
 
 [sub_resource type="LabelSettings" id="LabelSettings_a5p06"]
 font = ExtResource("1_ee8wn")
@@ -33,6 +37,9 @@ font_size = 40
 font_color = Color(0.883263, 0, 0.0707149, 1)
 shadow_size = 4
 shadow_color = Color(0.712017, 0.139825, 0.285214, 0.74902)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o8jf8"]
+size = Vector2(45.545, 48.83)
 
 [sub_resource type="Animation" id="Animation_x8p0i"]
 length = 0.001
@@ -253,9 +260,9 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_o8qou"]
 _data = {
-"RESET": SubResource("Animation_x8p0i"),
-"lev_clear": SubResource("Animation_l75w1"),
-"lev_failed": SubResource("Animation_4k5kv")
+&"RESET": SubResource("Animation_x8p0i"),
+&"lev_clear": SubResource("Animation_l75w1"),
+&"lev_failed": SubResource("Animation_4k5kv")
 }
 
 [node name="LevelUi" type="CanvasLayer"]
@@ -289,12 +296,20 @@ texture_normal = ExtResource("1_uhylo")
 ignore_texture_size = true
 stretch_mode = 5
 
+[node name="TouchScreenButton" parent="LevelBox/VBoxContainer/Navigations/PreviousLevel" instance=ExtResource("4_o8jf8")]
+position = Vector2(17, 15)
+shape = SubResource("RectangleShape2D_1qbhw")
+
 [node name="RestartLevel" type="TextureButton" parent="LevelBox/VBoxContainer/Navigations"]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 texture_normal = ExtResource("2_l0f45")
 ignore_texture_size = true
 stretch_mode = 5
+
+[node name="TouchScreenButton2" parent="LevelBox/VBoxContainer/Navigations/RestartLevel" instance=ExtResource("4_o8jf8")]
+position = Vector2(14, 15)
+shape = SubResource("RectangleShape2D_1qbhw")
 
 [node name="NextLevel" type="TextureButton" parent="LevelBox/VBoxContainer/Navigations"]
 custom_minimum_size = Vector2(30, 30)
@@ -303,12 +318,20 @@ texture_normal = ExtResource("3_jalx4")
 ignore_texture_size = true
 stretch_mode = 5
 
+[node name="TouchScreenButton3" parent="LevelBox/VBoxContainer/Navigations/NextLevel" instance=ExtResource("4_o8jf8")]
+position = Vector2(10, 15)
+shape = SubResource("RectangleShape2D_1qbhw")
+
 [node name="LevelsList" type="TextureButton" parent="LevelBox/VBoxContainer/Navigations"]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 texture_normal = ExtResource("6_rt44m")
 ignore_texture_size = true
 stretch_mode = 5
+
+[node name="TouchScreenButton4" parent="LevelBox/VBoxContainer/Navigations/LevelsList" instance=ExtResource("4_o8jf8")]
+position = Vector2(15, 15)
+shape = SubResource("RectangleShape2D_1qbhw")
 
 [node name="StatsBox" type="MarginContainer" parent="."]
 anchors_preset = 1
@@ -406,6 +429,10 @@ texture_normal = ExtResource("6_rt44m")
 ignore_texture_size = true
 stretch_mode = 5
 
+[node name="TouchScreenButton5" parent="LevelFailedPanel/HBoxContainer/LevelsList" instance=ExtResource("4_o8jf8")]
+position = Vector2(15, 26)
+shape = SubResource("RectangleShape2D_o8jf8")
+
 [node name="RestartLevel" type="TextureButton" parent="LevelFailedPanel/HBoxContainer"]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
@@ -413,9 +440,13 @@ texture_normal = ExtResource("2_l0f45")
 ignore_texture_size = true
 stretch_mode = 5
 
+[node name="TouchScreenButton6" parent="LevelFailedPanel/HBoxContainer/RestartLevel" instance=ExtResource("4_o8jf8")]
+position = Vector2(16, 27)
+shape = SubResource("RectangleShape2D_o8jf8")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_o8qou")
+&"": SubResource("AnimationLibrary_o8qou")
 }
 
 [connection signal="pressed" from="LevelBox/VBoxContainer/Navigations/PreviousLevel" to="." method="_on_previous_level_pressed"]

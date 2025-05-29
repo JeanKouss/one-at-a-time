@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://c4aeqw3lwmhsr"]
+[gd_scene load_steps=9 format=3 uid="uid://c4aeqw3lwmhsr"]
 
-[ext_resource type="Script" path="res://scenes/screens/credits/Credits.gd" id="1_8at3c"]
+[ext_resource type="Script" uid="uid://d0nk13j1mgp36" path="res://scenes/screens/credits/Credits.gd" id="1_8at3c"]
 [ext_resource type="FontFile" uid="uid://bromsfi4f0cgw" path="res://assets/fonts/GamjaFlower-Regular.ttf" id="1_becqt"]
 [ext_resource type="Texture2D" uid="uid://bx5qbd0b317fi" path="res://assets/icons/kenney/arrowLeft.png" id="2_cm68y"]
+[ext_resource type="PackedScene" uid="uid://bii0oophcu1cs" path="res://scenes/MobileAdaptaters/TouchScreenToURI.tscn" id="3_t12io"]
+[ext_resource type="PackedScene" uid="uid://7ysavqyupudj" path="res://scenes/MobileAdaptaters/TouchScreenToPress.tscn" id="4_lba8i"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_5aq0m"]
 font = ExtResource("1_becqt")
@@ -10,6 +12,12 @@ font_size = 100
 font_color = Color(1, 1, 0.560784, 1)
 outline_size = 115
 outline_color = Color(0.318287, 0.12198, 0.450025, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kfcb3"]
+size = Vector2(177.755, 47)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t12io"]
+size = Vector2(130.435, 44.13)
 
 [node name="Credits" type="Control"]
 layout_mode = 3
@@ -37,7 +45,7 @@ theme_override_constants/separation = 50
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "Thank"
+text = "Thanks to"
 label_settings = SubResource("LabelSettings_5aq0m")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
@@ -52,6 +60,10 @@ theme_override_font_sizes/font_size = 40
 text = "Kenney"
 underline = 1
 uri = "https://kenney.nl/"
+
+[node name="TouchScreenButton2" parent="VBoxContainer/HBoxContainer/Kenney" instance=ExtResource("3_t12io")]
+position = Vector2(53.5, 22.5)
+shape = SubResource("RectangleShape2D_kfcb3")
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -72,6 +84,10 @@ text = "Not A Jam"
 underline = 1
 uri = "https://not-jam.itch.io/not-jam-music-pack"
 
+[node name="TouchScreenButton" parent="VBoxContainer/HBoxContainer2/NotAJam" instance=ExtResource("3_t12io")]
+position = Vector2(73.5, 20.5)
+shape = SubResource("RectangleShape2D_kfcb3")
+
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_becqt")
@@ -89,5 +105,9 @@ theme_override_font_sizes/font_size = 32
 text = "Back"
 icon = ExtResource("2_cm68y")
 expand_icon = true
+
+[node name="TouchScreenButton" parent="BackButton" instance=ExtResource("4_lba8i")]
+position = Vector2(60, 20)
+shape = SubResource("RectangleShape2D_t12io")
 
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
